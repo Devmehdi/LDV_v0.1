@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" style="background-color: black !important" id="ftco-navbar">
         <div class="container">
-          <a class="navbar-brand" href="index.html">voiture <span> d'or</span></a>
+          <a class="navbar-brand" href="{{url('index')}}">voiture <span> d'or</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
           </button>
@@ -48,7 +48,7 @@
               </ul>
             </li>
               <li class="nav-item"><a href="{{url('liste')}}" class="nav-link">Nos Voiture</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
             <li class="nav-item "><a href="contact.html" class="nav-link btn-insc btn-zk">Inscription</a></li>
             <li class="nav-item "><a href="contact.html" class="nav-link btn-conect btn-zk">Se Conecter</a></li>
             </ul>

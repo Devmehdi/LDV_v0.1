@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class AgenceController extends Controller
+{
+    public function liste()
+    {
+        return view("pages.agence");
+    }
+}

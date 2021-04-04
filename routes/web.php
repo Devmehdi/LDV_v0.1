@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Voiture
+Route::get('/details','App\Http\Controllers\VoitureController@details');
+Route::get('/liste','App\Http\Controllers\VoitureController@liste');
+Route::get('/index','App\Http\Controllers\VoitureController@index');
+
+//Agence
+Route::get('/agence/liste','App\Http\Controllers\AgenceController@liste');
+

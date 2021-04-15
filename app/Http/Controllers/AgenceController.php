@@ -10,4 +10,8 @@ class AgenceController extends Controller
     {
         return view("pages.agence");
     }
+    public function ajouteragence()
+    {
+        return view("adminpages.addagence");
+    }
 }

@@ -25,7 +25,7 @@ Route::get('/index','App\Http\Controllers\VoitureController@index');
 //Agence
 Route::get('/agence/liste','App\Http\Controllers\AgenceController@liste');
 Route::get('/admin/agence/ajouteragence','App\Http\Controllers\AgenceController@ajouteragence');
-
+Route::post('/admin/agence/ajouteragence','App\Http\Controllers\AgenceController@ajouterAgc');
 
 //User
 Route::get('/contact','App\Http\Controllers\UserController@contact');

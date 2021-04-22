@@ -13,23 +13,23 @@
                                         </li>
 						</ul>
                         <label>Nom d'agence :</label><br />
-                        <input type="text" v-model="nom" class="form-control">
+                        <input type="text" v-model="nom" class="">
 
                         <label>Ville d'agence :</label><br />
-                        <input type="text" v-model="ville" class="form-control">
+                        <input type="text" v-model="ville" class="">
 
                         <label>Adresse :</label><br />
-                        <input type="text" v-model="adresse" class="form-control">
+                        <input type="text" v-model="adresse" class="">
 
                         <label>Telephone</label><br />
-                        <input type="text" v-model="telephone" class="form-control">
+                        <input type="text" v-model="telephone" class="">
 
                             <label>Description :</label>
-                        <textarea rows="6" v-model="description" class="form-control"></textarea>
+                        <textarea rows="6" v-model="description" class=""></textarea>
                     </div>
                         <div class="col-md-6 ">
                             <label>image :</label><br />
-                            <input type="file" id="avatar" class="form-control" name="avatar" accept="image/png, image/jpeg">
+                            <input type="file" id="avatar" class="" name="avatar" accept="image/png, image/jpeg">
                         </div>
                     </div>
                      <button class="btn btn-primary">Submit</button>

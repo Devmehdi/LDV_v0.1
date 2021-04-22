@@ -19906,7 +19906,6 @@ var render = function() {
                     expression: "nom"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: { type: "text" },
                 domProps: { value: _vm.nom },
                 on: {
@@ -19931,7 +19930,6 @@ var render = function() {
                     expression: "ville"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: { type: "text" },
                 domProps: { value: _vm.ville },
                 on: {
@@ -19956,7 +19954,6 @@ var render = function() {
                     expression: "adresse"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: { type: "text" },
                 domProps: { value: _vm.adresse },
                 on: {
@@ -19981,7 +19978,6 @@ var render = function() {
                     expression: "telephone"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: { type: "text" },
                 domProps: { value: _vm.telephone },
                 on: {
@@ -20005,7 +20001,6 @@ var render = function() {
                     expression: "description"
                   }
                 ],
-                staticClass: "form-control",
                 attrs: { rows: "6" },
                 domProps: { value: _vm.description },
                 on: {
@@ -20044,7 +20039,6 @@ var staticRenderFns = [
       _c("br"),
       _vm._v(" "),
       _c("input", {
-        staticClass: "form-control",
         attrs: {
           type: "file",
           id: "avatar",

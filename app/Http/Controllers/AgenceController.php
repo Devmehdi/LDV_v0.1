@@ -14,4 +14,9 @@ class AgenceController extends Controller
     {
         return view("adminpages.addagence");
     }
+    public function afficheagence()
+    {
+        return view("adminpages.afficheagence");
+    }
+  
 }

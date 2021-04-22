@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('css/aos.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
-    <link rel="stylesheet" type="{{asset('text/css" href="css/font-awesome.min.css')}}">
+    <link rel="stylesheet"  href="{{asset('css/font-awesome.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
@@ -32,7 +32,7 @@
 
         <div class="logos-zk">
             <!-- <img src="img/zk.png"> -->
-            <a class="navbar-brand" href="index.html">voiture <span> d'or</span></a>
+            <a class="navbar-brand" href="#">voiture <span> d'or</span></a>
         </div>
         <div class="toggle-btn toggle" id="sidenav-toggle" data-toggle="offcanvas">
          <i class="fa fa-bars" aria-hidden="true"></i>
@@ -68,7 +68,7 @@
                     <div id="demo" class="collapse in bor-zk">
                         <ul>
                             <li><a href="{{url('/admin/agence/ajouteragence')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Agences</a></li>
-                            <li><a href=""><i class="fa fa-cube" aria-hidden="true"></i> NoS Agences</a></li>
+                            <li><a href="{{url('/admin/agence/afficheagence')}}"><i class="fa fa-cube" aria-hidden="true"></i> Nos Agences</a></li>
                         </ul>
 
                     </div>
@@ -78,8 +78,8 @@
                     <div id="demo1" class="collapse in bor-zk">
                       
                       <ul>
-                            <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Voiture</a></li>
-                            <li><a href=""><i class="fa fa-cube" aria-hidden="true"></i></i> NoS Voiture</a></li>
+                            <li><a href="{{url('/admin/voiture/ajoutervoiture')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Voiture</a></li>
+                            <li><a href="{{url('/admin/voiture/affichevoiture')}}"><i class="fa fa-cube" aria-hidden="true"></i></i> Nos Voiture</a></li>
                         </ul>
                     </div>
 
@@ -91,9 +91,18 @@
                         </ul>
 
                     </div>
-                    <div class="fawnt "><i class="fa fa-envelope" aria-hidden="true"></i></i><span class="nav-label">Boite Réservation</span> </div>
 
-                     <div class="fawnt "><i class="fa fa-eye" aria-hidden="true"></i><span class="nav-label">Voir le site</span> </div>
+                    <div class="fawnt " data-toggle="collapse" data-target="#demo3"><i class="fa fa-users" aria-hidden="true"></i></i></i><span class="nav-label">Utilisateurs</span> <i class="fa fa-angle-down angle" aria-hidden="true"></i></div>
+                    <div id="demo3" class="collapse in bor-zk">
+                        <ul>
+                            <li><a href="{{url('/admin/user/ajouteruser')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter utilisateur</a></li>
+                            <li><a href="{{url('/admin/user/afficheusers')}}"><i class="fa fa-cube" aria-hidden="true"></i> utilisateurs</a></li>
+                        </ul>
+
+                    </div> 
+                    <div class="fawnt "><a style="color: #adb6be;" href="{{url('/admin/Reserv/boitereservation')}}"><i class="fa fa-envelope" aria-hidden="true"></i></i><span class="nav-label">Boite Réservation</span></a> </div>
+
+                     <div class="fawnt "><a style="color: #adb6be;" href="{{url('index')}}"><i class="fa fa-eye" aria-hidden="true"></i><span class="nav-label">Voir le site</span></a> </div>
 
 
 
@@ -108,9 +117,9 @@
     <!-- /Fin sidebar -->
 	<!-- /Fin sidebar -->
 
-    <div>
+    
         @yield('content')
-    </div>
+   
 
   <script src="{{asset('js/jquery.min.js')}}"></script>
   <script src="{{asset('js/jquery-migrate-3.0.1.min.js')}}"></script>

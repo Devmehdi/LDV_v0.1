@@ -13,42 +13,14 @@
        
    
        
-       <div class="champs-zk">
+       <div class="champs-zk" id="app">
            <fieldset>
                <legend>Afficher Agence</legend>
                  <div class="table-zk clearfix">
          <div class="row">
-        <div class="col-lg-6">
-            <div class="sherch-zk">
-                   <input type="search" name="" placeholder="chercher par nom">
-               </div>   
-               <table class="my-table">
-                    <thead>
-                   <tr>
-                       <th>Agences</th>
-                       <th width="20%"></th>
-                     
-                   </tr>
-               </thead>
-               <tbody id="my-row">
-                   <tr class="my-th active-zk">
-                       <td>Agence el harti</td>
-                       <td><button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                           <button class="del"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                       </td>
-                      
-                   </tr>
-                   <tr class="my-th">
-                       <td>Agence dhar mahraz</td>
-                        <td><button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                           <button class="del"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                       </td>
-                      
-                   </tr>
-                   
-               </tbody>
-               </table>   
-        </div>
+             
+           <showagence-component></showagence-component>
+
         <div class="col-lg-6 ">
            <div class="cart-zk">
              <h3>Agence</h3>
@@ -120,5 +92,6 @@
 
      </div>
      <!-- /Fin content-wrapper -->
+     <script src="{{ asset('js/app.js') }}"></script>
 </div>
 @endsection

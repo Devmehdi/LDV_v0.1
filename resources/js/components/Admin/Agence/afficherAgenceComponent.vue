@@ -1,66 +1,54 @@
 <template>
-   
+    <div class="col-lg-6">
+            <div class="sherch-zk">
+                   <input type="search" name="" placeholder="chercher par nom">
+               </div>   
+               <table class="my-table">
+                    <thead>
+                   <tr>
+                       <th>Agences</th>
+                       <th>Ville</th>
+                       <th>Action</th>
+                   </tr>
+               </thead>
+               <tbody id="my-row">
+                   <tr class="my-th active-zk" v-for="agence in Agences" :key="agence.index">
+                       <td>{{agence.nom}}</td>
+                       <td>{{agence.ville}}</td>
+                       <td><button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                           <button class="del"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                       </td>
+                   </tr>
+               </tbody>
+               </table>   
+        </div>
 </template>
 
 <script>
     export default {
-         data()
-          {
-                return{
-                        nom:'',
-                        ville:'',
-                        adresse:'',
-                        telephone:'',
-                        description:'',
-                        avatar:'',
-                        errors:[],
-                    }  
-          },
-        mounted() {
-            console.log('Component mounted.')
-        },
-        methods:
-        {
-            ajouterAgence()
+      data:function()
+       {
+           return{
+               Agences:[]
+           }
+       },
+         mounted()
+       {
+           console.log('test');
+           this.loadAgence();
+       },
+          methods: {
+            loadAgence:function()
             {
-                this.errors=[];
-                if(!this.nom)
-                {
-                    this.errors.push("Nom d'agence est obligatoire");
-                } 
-                if(!this.ville)
-                {
-                    this.errors.push("Ville est obligatoire");
-                }
-                if(!this.telephone)
-                {
-                    this.errors.push("Telephone est obligatoire");
-                }
-                if(!this.adresse)
-                {
-                    this.errors.push("Adresse est obligatoire");
-                }
-                if(!this.description)
-                {
-                    this.errors.push("Description est obligatoire");
-                }
-                else
-                {
-                    axios.post('/admin/agence/ajouteragence',{
-                         nom:this.nom,
-                         ville:this.ville,
-                         adresse:this.adresse,
-                         telephone:this.telephone,
-                         description:this.description,
-                         avatar:this.avatar,
-                    }).then(Response=>{
-                            console.log(Response);
-                            this.$router.push('/');
-                    }).catch(error=>{
-                       this.errors.push(error.Response.data.error);
-                  });
-                }
+               axios.get('/api/Agence')
+               .then((Response)=>{
+                  this.Agences=Response.data.data;
+               })
+               .catch(function(error)
+               {
+                  console.log(error);
+               })
             },
-        }
+       },
     }
 </script>

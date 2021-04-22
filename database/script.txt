@@ -1,0 +1,3 @@
+Table agence
+alter table agences
+add COLUMN description text

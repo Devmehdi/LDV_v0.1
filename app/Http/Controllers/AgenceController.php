@@ -16,6 +16,7 @@ class AgenceController extends Controller
     {
         return view("adminpages.addagence");
     }
+
     public function ajouterAgc(Request $request)
     {
         $agence=new Agence();
@@ -32,4 +33,10 @@ class AgenceController extends Controller
     {
         return AgenceResource::collection(Agence::all());
     }
+
+    public function afficheagence()
+    {
+        return view("adminpages.afficheagence");
+    }
+  
 }

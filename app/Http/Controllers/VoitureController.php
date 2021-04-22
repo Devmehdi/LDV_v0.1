@@ -18,4 +18,12 @@ class VoitureController extends Controller
     {
         return view("pages.listevoitures");
     }
+    public function ajoutervoiture()
+    {
+        return view("adminpages.addvoiture");
+    }
+    public function affichevoiture()
+    {
+        return view("adminpages.affichevoiture");
+    }
 }

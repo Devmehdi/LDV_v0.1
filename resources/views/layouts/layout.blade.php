@@ -49,6 +49,7 @@
             </li>
               <li class="nav-item"><a href="{{url('liste')}}" class="nav-link">Nos Voiture</a></li>
               <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
+              <li class="nav-item "><a href="{{url('/admin/index')}}" class="nav-link">Dashbord</a></li>
             <li class="nav-item "><a href="contact.html" class="nav-link btn-insc btn-zk">Inscription</a></li>
             <li class="nav-item "><a href="contact.html" class="nav-link btn-conect btn-zk">Se Conecter</a></li>
             </ul>

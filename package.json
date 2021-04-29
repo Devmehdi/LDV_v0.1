@@ -19,6 +19,9 @@
     },
     "dependencies": {
         "prettify": "^0.1.7",
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-axios": "^3.2.4",
+        "vue-router": "^3.5.1",
+        "vue-toastr": "^2.1.2"
     }
 }

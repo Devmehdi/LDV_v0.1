@@ -1,12 +1,14 @@
 <template>
+
+
    <div class="row d-flex">
-       
+      
         <div class="col-md-4 d-flex ftco-animate" >
             <div v-for="agence in Agences" :key="agence.index">
 
           <div class="blog-entry justify-content-end" style="width:300px">
             <a href="agence-single.html" class="block-20" style="">
-               
+              <img :src="'http://localhost:8000/storage/'+agence.image" alt="#" style="width:270px;height:300px;">
             </a>
             <div class="text pt-4">
               <h3 class="heading mt-2"><a href="agence-single.html">{{agence.nom}}</a></h3>

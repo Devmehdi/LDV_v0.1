@@ -1,3 +1,31 @@
+---------------------------------------------------
 Table agence
 alter table agences
 add COLUMN description text
+
+alter table agences
+modify COLUMN deleted_at timestamp null
+
+alter table agences
+add COLUMN image varchar(150)
+
+---------------------------------------------------
+table users
+
+alter table users
+add COLUMN nom varchar(100)
+
+alter table users
+add COLUMN prenom varchar(100)
+
+alter table users
+add COLUMN addresse varchar(100)
+
+alter table users
+add COLUMN image varchar(100)
+
+alter table users
+add COLUMN telephone varchar(20)
+
+alter table users
+modify COLUMN deleted_at timestamp null

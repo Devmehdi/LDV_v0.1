@@ -8,6 +8,12 @@ function getById($model,$id)
     return $data;
 }
 
+function getAll($model)
+{
+    $obj=$model::all();
+    return $obj;
+}
+
 function Delete($model,$id)
 {
     $Agence=$model::find($id);
@@ -18,6 +24,6 @@ function Delete($model,$id)
     }
     else
     {
-        return response()->json(['Product not dropped'],425);
+        return response()->json(['Notification not dropped'],425);
     }
 }

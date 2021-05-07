@@ -7665,6 +7665,9 @@ sub {
   padding: 0 0.9375rem;
   background: #fff;
   margin-left: 15.1875rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   transition: all .2s ease; }
   .header .header-content {
     height: 100%; }
@@ -8128,6 +8131,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   height: 100%;
   position: absolute;
   top: 5rem;
+  left:0px;
   padding-top: 0;
   z-index: 99;
   background: #fff;

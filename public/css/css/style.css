@@ -57,7 +57,7 @@ footer {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  color: white;
+  color: black;
 }
 .tabs > li:before {
   z-index: -1;

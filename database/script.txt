@@ -29,3 +29,13 @@ add COLUMN telephone varchar(20)
 
 alter table users
 modify COLUMN deleted_at timestamp null
+
+
+alter table coleurs
+add column statut varchar(50)
+
+alter table marques
+add column statut varchar(50)
+
+alter table carburants
+add column statut varchar(50)

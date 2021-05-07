@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('Agence','App\Http\Controllers\AgenceController@getallagence');
+Route::get('notification','App\Http\Controllers\NotificationController@getnotification');
 Route::get('GetAgenceById/{id}','App\Http\Controllers\AgenceController@GetAgenceById');
 Route::get('edit/{id}', 'App\Http\Controllers\AgenceController@edit');
 Route::post('update/{id}', 'App\Http\Controllers\AgenceController@update');

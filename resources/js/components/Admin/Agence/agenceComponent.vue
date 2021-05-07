@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Telephone</label>
-                                        <input type="text" class="form-control" v-model="telephone">
+                                        <input type="text" class="form-control" v-model="telephone" pattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}">
                                         <div v-for="error in telerror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
                                       </div>

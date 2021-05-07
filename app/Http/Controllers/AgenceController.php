@@ -44,10 +44,17 @@ class AgenceController extends Controller
     {
         return view('pages.dashboard');
     }
-    public function afficheagence()
+    public function afficheagence($id=0)
     {
-        $agences=AgenceResource::collection(Agence::all());
-        return view("adminpages.afficheagence",array('agences'=>$agences));
+        if($id==0)
+        {
+            $agences=AgenceResource::collection(Agence::all());
+            return view("adminpages.afficheagence",array('agences'=>$agences));
+        }
+        else{
+            $agence = Agence::find($id);
+            return view("adminpages.afficheagence",array('agence'=>$agence));
+        }
     }
     public function GetAgenceById($id)
     {
@@ -56,8 +63,8 @@ class AgenceController extends Controller
     }
     public function details($id)
     {
-        $agence = Agence::find($id);
-        return view('adminpages.afficheagence',array('agence'=>$agence));
+        $agc = Agence::find($id);
+        return view('adminpages.afficheagence',array('agc'=>$agc));
     } 
     public function destroy($id)
     {

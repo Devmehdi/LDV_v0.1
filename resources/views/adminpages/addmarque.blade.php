@@ -13,12 +13,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Nouveau Voiture</h4>
-                        <voiture-component></voiture-component>
+                        <h4 class="card-title">Nouveau Marque</h4>
+                        <marque-component></marque-component>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- #/ container -->

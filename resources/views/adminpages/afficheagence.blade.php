@@ -2,13 +2,18 @@
 
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="card" style="margin:130px">
+            <div class="card" style="margin:130px; position: absolute; top: -100px;">
+                <div class="row">
+                
+                    <div class="col-4">
+                        <a href="ajouteragence" style="margin: 20px" class="btn btn-primary">Ajouter nouveau</a>
+                    </div>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title">Data Table</h4>
+                    <h4 class="card-title">Liste d'agences</h4>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered zero-configuration">
                             <thead>
@@ -31,8 +36,28 @@
                                     <td>{{$agence->created_at}}</td>
                                     <td>
                                             <a href="{{url('admin/agence/'.$agence->id.'/edit')}}"><i class="zmdi zmdi-edit"></i></a>&nbsp;
-                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="zmdi zmdi-view-list-alt"></i></i></a>&nbsp;
-                                            <a href=""><i class="zmdi zmdi-delete"></i></a>
+                                            <a data-id="{{ $agence->id }}" id="show-customer" data-toggle="modal" data-target="#exampleModalCenter"><i class="zmdi zmdi-view-list-alt"></i></i></a>&nbsp;
+                                            <a href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="zmdi zmdi-delete"></i></a>
+                                            <form id="myForm" action="{{url('agence/'.$agence->id.'/deleted')}}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{method_field('DELETE')}}
+                                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Confirmer</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">Vouller vous vraiment supprimer cet ligne ?</div>
+                                                            <div class="modal-footer">
+                                                                <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+                                                                <button type="submit" class="btn btn-primary">Supprimer</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                     </td>
                                 </tr>
                               @endforeach
@@ -52,50 +77,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Vertically centered</h4>
-                    <div class="bootstrap-modal">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Launch demo modal</button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Sweet Confirm</h4>
-                    <div class="card-content">
-                        <div class="sweetalert m-t-30">
-                            <button class="btn btn-warning btn sweet-confirm">Sweet Confirm</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /# card -->
-        </div>
+       
+     
     </div>
 </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+
+$("#myForm").on("submit", function(e) {
+    e.preventDefault();
+    return false;
+});
+
+</script>
 @endsection
 

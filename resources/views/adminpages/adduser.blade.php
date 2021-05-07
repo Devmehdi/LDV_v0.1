@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Vertical Form</h4>
+                        <h4 class="card-title">Ajouter Utilisateur</h4>
                         <user-component></user-component>
                     </div>
                 </div>

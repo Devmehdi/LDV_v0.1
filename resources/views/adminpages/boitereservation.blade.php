@@ -1,124 +1,51 @@
-@extends('layouts.layoutAdmin')
+@extends('layouts.master.layout')
 
 @section('content')
-
-<div class="wrapper ">
-    
-    <!-- /Start content-wrapper -->
-     <div class="content-wrapper">
-       <div class="tit-top">
-           <h4><i class="fa fa-home" aria-hidden="true"></i> Agences</h4>
-       </div>	
-
-       
-   
-       
-       <div class="champs-zk">
-           <fieldset>
-               <legend>Afficher Agence</legend>
-                 <div class="table-zk clearfix">
-         <div class="row">
-        <div class="col-lg-6">
-            <div class="sherch-zk">
-                   <input type="search" name="" placeholder="chercher par nom">
-               </div>   
-               <table class="my-table">
-                    <thead>
-                   <tr>
-                       <th>Agences</th>
-                       <th width="20%"></th>
-                     
-                   </tr>
-               </thead>
-               <tbody id="my-row">
-                   <tr class="my-th active-zk">
-                       <td>Agence el harti</td>
-                       <td><button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                           <button class="del"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                       </td>
-                      
-                   </tr>
-                   <tr class="my-th">
-                       <td>Agence dhar mahraz</td>
-                        <td><button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                           <button class="del"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                       </td>
-                      
-                   </tr>
-                   
-               </tbody>
-               </table>   
-        </div>
-        <div class="col-lg-6 ">
-           <div class="cart-zk">
-             <h3>Agence</h3>
-             <!-- <ul>
-               <li><label>Name :</label> <label>el harti</label></li>
-               <li><label>ville :</label> <label>SPAIN</label></li>
-               <li><label>adresse :</label> <label>7,207</label></li>
-               <li><label>descreption :</label> <br> <P>REEFER VESSEL</p></li>
-               <li><label>image :</label></li>
-               
-               
-             </ul> -->
-             <div style="padding: 10px">
-             <div class="row"> 
-             <div class="col-md-4">
-                 <label>Name :</label> 
-             </div>
-               <div class="col-md-8">
-                 <span> el harti </span> 
-             </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style=" margin-left: 100px;">
+                <div class="card-body">
+                    <div class="email-left-box">
+                        <div class="mail-list mt-4"><a href="email-inbox.html" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Aujourd'hui</b> <span class="badge badge-primary badge-sm float-right m-t-5">198</span> </a>
+                            <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-paper-plane font-18 align-middle mr-2"></i>Dérnier Mois</a>  <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-star-o font-18 align-middle mr-2"> </a>
+                            <a href="#" class="list-group-item border-0 p-r-0"><i class="mdi mdi-file-document-box font-18 align-middle mr-2"></i>Dérnier Année</a><a href="#" class="list-group-item border-0 p-r-0">
+                        </div>
+                    </div>
+                  
+                    <div class="email-right-box">
+                        @foreach ($reservations as $reservation)  
+                        <div class="email-list m-t-15">
+                            <div class="message">
+                                   
+                                    <a href="{{url('/admin/Reserv/reservation/'.$reservation->id)}}">
+                                        <div class="col-mail col-mail-2">
+                                            <div class="subject">Nouvelle Demande du {{$reservation->id}} de Voiture Voir le detail ...</div>
+                                            <div class="date">11:49 am</div>
+                                        </div>
+                                    </a>
+                               
+                            </div>
+                        </div>
+                        @endforeach
+                        <!-- panel -->
+                        <div class="row">
+                            <div class="col-7">
+                                
+                            </div>
+                            <div class="col-5">
+                                <div class="btn-group float-right">
+                                    <button class="btn btn-gradient" type="button"><i class="fa fa-angle-left"></i>
+                                    </button>
+                                    <button class="btn btn-dark" type="button"><i class="fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-              <div class="row"> 
-             <div class="col-md-4">
-                 <label>Ville :</label> 
-             </div>
-               <div class="col-md-8">
-                 <span> el harti </span> 
-             </div>
-            </div>
-
-              <div class="row"> 
-             <div class="col-md-4">
-                 <label>Adreese :</label> 
-             </div>
-               <div class="col-md-8">
-                 <span> el harti </span> 
-             </div>
-            </div>
-
-              <div class="row"> 
-             <div class="col-md-4">
-                 <label>Description :</label> 
-             </div>
-               <div class="col-md-8">
-                 <span> el harti </span> 
-             </div>
-            </div>
-             <div class="row"> 
-             <div class="col-md-12" style="height: 200px;">
-                 <img src="images/marrakech.jpg" style="width: 100%;height: auto;">
-             </div>
-            </div>
-
-
         </div>
-
-           </div>
-         
-
-         
-        </div>
-        </div>
-        </div>
-   
-              
-           </fieldset>
-       </div>
-
-     </div>
-     <!-- /Fin content-wrapper -->
+    </div>
 </div>
 @endsection

@@ -21,6 +21,7 @@ class AgenceResource extends JsonResource
             'ville'=>$this->ville,
             'description'=>$this->description,
             'addresse'=>$this->addresse,
+            'image'=>$this->image,
             'deleted_at'=>$this->deleted_at,
             'update_at'=>$this->update_at,
             'create_at'=>$this->created_at,

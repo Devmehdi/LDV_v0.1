@@ -21498,7 +21498,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Email" },
+                  attrs: { type: "text", placeholder: "Agence nom" },
                   domProps: { value: _vm.nom },
                   on: {
                     input: function($event) {
@@ -21543,7 +21543,10 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { id: "inputState" },
+                    attrs: {
+                      id: "inputState",
+                      "aria-placeholder": "Choisir la ville"
+                    },
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -21610,6 +21613,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    placeholder: "+212/06/05/0700000000",
                     pattern: "(\\+212|0)([ \\-_/]*)(\\d[ \\-_/]*){9}"
                   },
                   domProps: { value: _vm.telephone },
@@ -21653,7 +21657,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "1234 Main St" },
+                attrs: { type: "text", placeholder: "Addresse" },
                 domProps: { value: _vm.adresse },
                 on: {
                   input: function($event) {
@@ -21694,7 +21698,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { rows: "10", placeholder: "Enter description" },
+                attrs: { rows: "10", placeholder: "description" },
                 domProps: { value: _vm.description },
                 on: {
                   input: function($event) {

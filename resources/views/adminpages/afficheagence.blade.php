@@ -2,10 +2,24 @@
 
 
 @section('content')
+
+
+<div class="content-body">
+
+  
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="card" style="margin:130px; position: absolute; top: -100px;">
+            <div class="card" >
                 <div class="row">
                 
                     <div class="col-4">
@@ -80,6 +94,8 @@
        
      
     </div>
+</div>
+    <!-- #/ container -->
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script>

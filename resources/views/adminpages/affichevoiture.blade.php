@@ -4,7 +4,21 @@
 @section('content')
     
 
-<section class="wrapper">
+
+<div class="content-body">
+
+  
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+</div>
+
+    <div class="container-fluid" id="app">
+    
 	<ul class="tabs">
 		<li class="active">Voitures</li>
 		<li>Coleurs</li>
@@ -232,6 +246,9 @@
     </div>
 </li>
 	</ul>
-</section>
+
+    </div>
+    <!-- #/ container -->
+</div>
               
 @endsection

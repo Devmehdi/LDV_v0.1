@@ -6,7 +6,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Nom d'agence</label>
-                                        <input type="text" class="form-control" v-model="nom"  placeholder="Email">
+                                        <input type="text" class="form-control" v-model="nom"  placeholder="Agence nom">
                                         <div v-for="error in nomerror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
                                       </div>
@@ -16,7 +16,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Ville</label>
-                                        <select id="inputState" v-model="ville" class="form-control">
+                                        <select id="inputState" v-model="ville" aria-placeholder="Choisir la ville" class="form-control">
                                             <option selected="selected">Choose...</option>
                                             <option value="casablanca">Option 1</option>
                                             <option value="Rabat">Option 2</option>
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Telephone</label>
-                                        <input type="text" class="form-control" v-model="telephone" pattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}">
+                                        <input type="text" class="form-control" v-model="telephone" placeholder="+212/06/05/0700000000" pattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}">
                                         <div v-for="error in telerror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
                                       </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input type="text" class="form-control" v-model="adresse" placeholder="1234 Main St">
+                                    <input type="text" class="form-control" v-model="adresse" placeholder="Addresse">
                                     <div v-for="error in adrrror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
                                       </div>
@@ -44,7 +44,7 @@
                                
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea rows="10" class="form-control" v-model="description"  placeholder="Enter description"></textarea>
+                                    <textarea rows="10" class="form-control" v-model="description"  placeholder="description"></textarea>
                                     <div v-for="error in descerror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
                                       </div>

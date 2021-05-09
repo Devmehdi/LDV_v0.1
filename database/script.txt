@@ -39,3 +39,11 @@ add column statut varchar(50)
 
 alter table carburants
 add column statut varchar(50)
+
+alter table users
+add COLUMN agence_id int
+
+ALTER TABLE users 
+ADD CONSTRAINT fk_id_agence 
+FOREIGN KEY (agence_id) 
+REFERENCES agences(id);

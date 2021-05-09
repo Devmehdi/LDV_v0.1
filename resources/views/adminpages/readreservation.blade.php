@@ -13,30 +13,33 @@
                     <div class="email-right-box">
                         <div class="read-content">
                             <div class="media pt-5">
-                                <img class="mr-3 rounded-circle" src="images/avatar/1.jpg">
                                 <div class="media-body">
-                                    <h5 class="m-b-3">Ingredia Nutrisha</h5>
-                                    <p class="m-b-2">20 May 2018</p>
+                                    <h5 class="m-b-3">De : {{$reservation->fullname}}</h5>
+                                    <p class="m-b-2">{{$reservation->created_at}}</p>
                                 </div>
                                 
                             </div>
                             <hr>
                             <div class="media mb-4 mt-1">
-                                <div class="media-body"><span class="float-right">07:23 AM</span>
-                                    <h4 class="m-0 text-primary">Nouvelle demande du {date}</h4>
+                                <div class="media-body">
+                                    <h4 class="m-0 text-primary">Nouvelle demande du {{$reservation->date_debut}} au {{$reservation->date_fin}}</h4>
                                 </div>
                             </div>
-                            <p><strong>Ingredia Nutrisha,</strong> A collection of {{$reservation->id}} {{$voiture->voiture_nom}} textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</p>
+                            <p><strong>{{$reservation->fullname}}</strong> a demander la voiture {{$voiture->voiture_nom}} le {{$reservation->created_at}} merci de confirmer la demande </p>
 
                             <hr>
 
-                            <div class="form-group p-t-15">
-                                <textarea class="w-100 p-20 l-border-1" name="" id="" cols="30" rows="5" placeholder="It's really an amazing.I want to know more about it..!"></textarea>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <button class="btn btn-primaryw-md m-b-30" type="button">Send</button>
-                        </div>
+                            <form action="{{url('confirmation/'.$reservation->id)}}" method="post">
+                                <input type="hidden" name="_method" value="PUT">
+                                @csrf
+                                    <div class="form-group p-t-15">
+                                        <textarea class="w-100 p-20 l-border-1" name="" id="" cols="30" rows="5" placeholder="It's really an amazing.I want to know more about it..!"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-primaryw-md m-b-30" type="submit">Send</button>
+                                 </div>
+                          </form>
                     </div>
                 </div>
             </div>

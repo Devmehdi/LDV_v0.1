@@ -14,19 +14,34 @@
                     </div>
                   
                     <div class="email-right-box">
-                        @foreach ($reservations as $reservation)  
-                        <div class="email-list m-t-15">
-                            <div class="message">
-                                   
-                                    <a href="{{url('/admin/Reserv/reservation/'.$reservation->id)}}">
-                                        <div class="col-mail col-mail-2">
-                                            <div class="subject">Nouvelle Demande du {{$reservation->id}} de Voiture Voir le detail ...</div>
-                                            <div class="date">11:49 am</div>
-                                        </div>
-                                    </a>
-                               
+                        @foreach ($reservations as $reservation)
+                        @if($reservation->confirmation==0)
+                            <div class="email-list m-t-15">
+                                <div class="message">
+                                        <a href="{{url('/admin/Reserv/reservation/'.$reservation->id)}}">
+                                            <div class="col-mail col-mail-2">
+                                                <div class="subject" style="color: red">Nouvelle Demande de Voiture Voir le detail ...</div>
+                                                <div class="date">11:49 am</div>
+                                            </div>
+                                        </a>
+                                
+                                </div>
                             </div>
-                        </div>
+                            @endif
+                            @if($reservation->confirmation==1)
+                            <div class="email-list m-t-15">
+                                <div class="message">
+                                        <a href="{{url('/admin/Reserv/reservation/'.$reservation->id)}}">
+                                            <div class="col-mail col-mail-2">
+                                                <div class="subject">Nouvelle Demande de Voiture Voir le detail ...</div>
+                                                <div class="date">11:49 am</div>
+                                            </div>
+                                        </a>
+                                
+                                </div>
+                            </div>
+                            @endif
+                         
                         @endforeach
                         <!-- panel -->
                         <div class="row">

@@ -9,7 +9,8 @@ use App\Http\Resources\NotificationResource;
 class NotificationController extends Controller
 {
     public function getnotification(){
-       $notif=NotificationResource::collection(Notification::where('activeflage' , '=' , 1)->get());
+       $id=session('id',3);
+       $notif=NotificationResource::collection(Notification::where('agence_id' , '=' , $id)->get());
        return response()->json($notif);
     }
     public function destroy($id)

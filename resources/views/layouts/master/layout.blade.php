@@ -153,16 +153,7 @@
                         </ul>
 
                     </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="true">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Service</span>
-                        </a>
-                        <ul aria-expanded="true">
-                            <li><a href="./index.html">Home 1</a></li>
-                            <li><a href="./index.html">Home 1</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                        </ul>
-                    </li>
+                    
                     <li>
                         <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Boite Réservation</span>

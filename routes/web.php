@@ -93,7 +93,7 @@ Route::Delete('/user/{id}/deleted','App\Http\Controllers\UserController@destroy'
 // partie admin
 Route::get('/admin/Reserv/boitereservation','App\Http\Controllers\ReservationController@boitereservation');
 Route::get('/admin/Reserv/reservation/{id}','App\Http\Controllers\ReservationController@readreservation');
-
+Route::PUT('/confirmation/{id}','App\Http\Controllers\ReservationController@confirm');
 //Admin
 Route::get('/dashboard','App\Http\Controllers\AdminController@index');
 

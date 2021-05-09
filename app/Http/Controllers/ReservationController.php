@@ -17,10 +17,10 @@ class ReservationController extends Controller
     }
     public function boitereservation()
     {
-        $reservations= Reservation::all();
+        $reservations= Reservation::all()->sortBy('confirmation');
         return view("adminpages.boitereservation",array('reservations'=>$reservations));
     }
-   public function readreservation($id)
+    public function readreservation($id)
     {
         $reservation = Reservation::find($id);
         if($reservation!=null)
@@ -28,5 +28,13 @@ class ReservationController extends Controller
            $voiture=Voiture::find($reservation->voiture_id);
         }
         return view("adminpages.readreservation",array('reservation'=>$reservation,'voiture'=>$voiture));
+    }
+    public function confirm($id)
+    {
+        $reser=Reservation::find($id);
+        $reser->confirmation=1;
+        $reser->save();
+
+        return redirect('/admin/Reserv/boitereservation');
     }
 }

@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12">
             
-            <div class="card" style="margin:130px; position: absolute; top: -100px;">
+            <div class="card" >
                 <div class="row">
                 
                     <div class="col-4">

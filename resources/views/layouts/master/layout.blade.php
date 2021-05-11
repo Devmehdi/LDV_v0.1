@@ -92,7 +92,7 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="{{url('/admin/profil')}}"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <hr class="my-2">
                                         <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
@@ -117,12 +117,12 @@
                     
                     <li>
                         <a class="has-arrow" href="{{url('/dashboard')}}" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                            <i class="icon-home menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Agence</span>
+                            <i class="icon-map menu-icon"></i><span class="nav-text">Agence</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{url('/admin/agence/ajouteragence')}}">Nouvelle Agence</a></li>
@@ -132,7 +132,7 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Voiture</span>
+                            <i class="icon-star menu-icon"></i><span class="nav-text">Voiture</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{url('/admin/voiture/ajoutervoiture')}}">Nouvelle Voiture</a></li>
@@ -142,7 +142,7 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Utilisateur</span>
+                            <i class="icon-people menu-icon"></i><span class="nav-text">Utilisateur</span>
                         </a>
                         
                         <ul aria-expanded="false">
@@ -156,13 +156,18 @@
                     
                     <li>
                         <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Boite Réservation</span>
+                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Boite Réservation</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="./index.html">Home 1</a></li>
 
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
+                    </li>
+                    <li style="position: absolute;bottom: 0;width: 100%">
+                        <a class="has-arrow" href="{{url('index')}}" aria-expanded="false">
+                            <i class="icon-eye menu-icon"></i><span class="nav-text"> Voir site web</span>
+                        </a>
                     </li>
                 </ul>
                    

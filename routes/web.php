@@ -85,6 +85,7 @@ Route::get('admin/user/{id}/edit','App\Http\Controllers\userController@edit');
 Route::get('admin/user/{id}/details','App\Http\Controllers\userController@edit');
 
 Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update');
+Route::get('/admin/profil/','App\Http\Controllers\userController@afficheCurrentUser');
 
 //Route::delete('/admin/user/delete/{id}','App\Http\Controllers\AgenceController@destroy');
 

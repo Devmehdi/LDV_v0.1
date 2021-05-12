@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Models\Agence;
+use App\Models\Coleur;
+use App\Models\Carburant;
+use App\Models\Marque;
 use App\Http\Resources\AgenceResource;
 use App\Http\Requests\AgenceRequest;
 
@@ -19,18 +22,24 @@ class AgenceController extends Controller
     {
         return view("adminpages.addagence");
     }
-
     public function ajouterAgc(AgenceRequest $request)
     {
         $agence=new Agence();
-        $agence->agence_name=$request->nom;
-        $agence->agences_tel=$request->telephone;
-        $agence->ville=$request->ville;
-        $agence->addresse=$request->adresse;
-        $agence->description=$request->description;
+        $agence->agence_name=$request->input('nom');
+        $agence->agences_tel=$request->input('telephone');
+        $agence->ville=$request->input('ville');
+        $agence->addresse=$request->input('adresse');
+        $agence->description=$request->input('description');
+        if($request->hasFile('image'))
+        {
+           $photo=$request->file('image')->getClientOriginalName();
+           $destination=base_path() . '/public/images/agences';
+           $request->file('image')->move($destination,$photo);
+           $agence->image=$photo;
+        }
         $agence->save();
         
-        return response()->json("done",200);
+        return redirect('/admin/agence/afficheagence')->with('message','Data added Successfully');
     }
     public function getallagence()
     {
@@ -88,15 +97,12 @@ class AgenceController extends Controller
         $agence->addresse=$request->input('adresse');
         $agence->agences_tel=$request->input('telephone');
         $agence->description=$request->input('description');
-        if($request->hasFile('image')){
-            $validatedData = $request->validate([
-                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-       
-               ]);
-               $name = $request->file('image')->getClientOriginalName();
- 
-               $path = $request->file('image')->store('images');
-            $agence->image=$name;
+        if($request->hasFile('image'))
+        {
+           $photo=$request->file('image')->getClientOriginalName();
+           $destination=base_path() . '/public/images/agences';
+           $request->file('image')->move($destination,$photo);
+           $agence->image=$photo;
         }
        
         $agence->save();

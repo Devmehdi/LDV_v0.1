@@ -83,8 +83,9 @@
                     <ul class="clearfix">
                         
                         <notification-component></notification-component>
+
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
                                 <img src="{{url('images/user/1.png')}}" height="40" width="40" alt="">
                             </div>
@@ -95,7 +96,17 @@
                                             <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <hr class="my-2">
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                                     </ul>
                                 </div>
                             </div>
@@ -158,11 +169,6 @@
                         <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Boite Réservation</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Home 1</a></li>
-
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                        </ul>
                     </li>
                 </ul>
                    

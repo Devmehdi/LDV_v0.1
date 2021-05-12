@@ -55,7 +55,7 @@ export default {
             },
             getnotify:function()
 	         {
-                axios.get('http://localhost:8000/api/notification')
+                axios.get('http://localhost:8000/notification')
                 .then((Response)=>{
                         this.notifs=Response.data;
                   }).catch(function(error)

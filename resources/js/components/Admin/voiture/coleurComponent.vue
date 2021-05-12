@@ -39,6 +39,7 @@
           {
                 return{
                         coleur:'',
+                        colors:[],
                         selected: 'Active',
                          options: [
                             { text: 'Active', value: 'Active' },
@@ -83,6 +84,7 @@
                   });
                 }
             },
+            
         },
      
     }

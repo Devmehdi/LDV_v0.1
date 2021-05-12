@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" style=" margin-left: 100px;">
+            <div class="card" style="margin-left: 300px;">
                 <div class="card-body">
                     <div class="email-left-box"><a href="email-compose.html" class="btn btn-primary btn-block">Back</a>
                         
@@ -25,7 +25,7 @@
                                     <h4 class="m-0 text-primary">Nouvelle demande du {{$reservation->date_debut}} au {{$reservation->date_fin}}</h4>
                                 </div>
                             </div>
-                            <p><strong>{{$reservation->fullname}}</strong> a demander la voiture {{$voiture->voiture_nom}} le {{$reservation->created_at}} merci de confirmer la demande </p>
+                            <p><strong>{{$reservation->fullname}}</strong> a demander la voiture {{$voiture->voiture_nom}} le {{$reservation->created_at}} pour une durée de {{$reservation->duree}} jour(s).<br> merci de confirmer la demande </p>
 
                             <hr>
 
@@ -33,7 +33,7 @@
                                 <input type="hidden" name="_method" value="PUT">
                                 @csrf
                                     <div class="form-group p-t-15">
-                                        <textarea class="w-100 p-20 l-border-1" name="" id="" cols="30" rows="5" placeholder="It's really an amazing.I want to know more about it..!"></textarea>
+                                        <textarea class="w-100 p-20 l-border-1" name="" id="" cols="20" rows="3" placeholder="Commentaire"></textarea>
                                     </div>
                                 </div>
                                 <div class="text-right">

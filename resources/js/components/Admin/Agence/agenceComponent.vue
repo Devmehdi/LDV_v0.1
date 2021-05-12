@@ -2,7 +2,7 @@
 
 <div>
         <div class="basic-form">
-                            <form @submit.prevent="ajouterAgence()">
+                            <form @submit.prevent="ajouterAgence()" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Nom d'agence</label>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Image</label>
-                                    <input type="file" class="form-control" placeholder="">
+                                    <input type="file" name="image" class="form-control" placeholder="">
                                 </div>
                                 <button type="submit" class="btn btn-dark">Submit</button>
                                 <a href="afficheagence" type="submit" class="btn btn-secondary">Annuler</a>

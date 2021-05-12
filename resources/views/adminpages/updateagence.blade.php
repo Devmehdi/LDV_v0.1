@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Vertical Form</h4>
+                        <h4 class="card-title">Modifier l'agence</h4>
                         <div class="basic-form">
                             <form action="{{url('/admin/agence/'.$agence->id)}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PUT">
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Image</label>
-                                    <input type="file" class="form-control" placeholder="">
+                                    <input type="file" name="image" class="form-control" placeholder="">
                                 </div>
                                 <button type="submit" class="btn btn-dark">Submit</button>
                                 <a href="{{url('admin/agence/afficheagence')}}"class="btn btn-secondary" type="reset">Annuler</a>

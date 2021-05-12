@@ -1,145 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Voiture d'or</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-   
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
-    <!-- <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
-    <link rel="stylesheet"  href="{{asset('css/font-awesome.min.css')}}">
+    <!-- Custom Stylesheet -->
+    <link href="{{asset('./plugins/tables/css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{asset('./plugins/pg-calendar/css/pignose.calendar.min.css')}}" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="{{asset('./plugins/chartist/css/chartist.min.css')}}">
+    <link rel="stylesheet" href="{{asset('./icons/simple-line-icons/css/simple-line-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('./icons/material-design-iconic-font/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css')}}">
+    <link href="{{asset('css/css/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('plugins/sweetalert/css/sweetalert.css')}}" rel="stylesheet">
+</head>
+<body>
+  
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
-
-    
-    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}"> -->
-    
-
-  <body>
-	   <div class="the-nav">
-
-        <div class="logos-zk">
-            <!-- <img src="img/zk.png"> -->
-            <a class="navbar-brand" href="#">voiture <span> d'or</span></a>
-        </div>
-        <div class="toggle-btn toggle" id="sidenav-toggle" data-toggle="offcanvas">
-         <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
+        <!--**********************************
+            Content body start
+        ***********************************-->
+     
+            @yield('content')
        
-
-
-
-
-        <div class="auth-app">
-            <div class="dropdown ">
-                <i class="fa fa-user-circle dropdown-toggle" data-toggle="dropdown"></i>
-                <ul class="dropdown-menu">
-                    <li><a><i class="fa fa-user" aria-hidden="true"></i>zakaria zoubir</a></li>
-                    <li><a><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
-
-    <!-- sidebar -->
-    <aside class="main-sidebar">
-        <nav class="navbar-primary">
-            <ul class="navbar-primary-menu" id="myDIV">
-                <li class="marg-padd">
-
-
-                   <div class="fawnt active"><i class="fa fa-home" aria-hidden="true"></i><span class="nav-label">Dashbord</span> </div>
-
-                    <div class="fawnt " data-toggle="collapse" data-target="#demo"><i class="fa fa-location-arrow" aria-hidden="true"></i><span class="nav-label">Agences</span> <i class="fa fa-angle-down angle" aria-hidden="true"></i></div>
-                    <div id="demo" class="collapse in bor-zk">
-                        <ul>
-                            <li><a href="{{url('/admin/agence/ajouteragence')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Agences</a></li>
-                            <li><a href="{{url('/admin/agence/afficheagence')}}"><i class="fa fa-cube" aria-hidden="true"></i> Nos Agences</a></li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="fawnt" data-toggle="collapse" data-target="#demo1"><i class="fa fa-car"  aria-hidden="true"></i><span class="nav-label">Voiture</span><i class="fa fa-angle-down angle" aria-hidden="true"></i></div>
-                    <div id="demo1" class="collapse in bor-zk">
-                      
-                      <ul>
-                            <li><a href="{{url('/admin/voiture/ajoutervoiture')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Voiture</a></li>
-                            <li><a href="{{url('/admin/voiture/affichevoiture')}}"><i class="fa fa-cube" aria-hidden="true"></i></i> Nos Voiture</a></li>
-                        </ul>
-                    </div>
-
-                      <div class="fawnt " data-toggle="collapse" data-target="#demo2"><i class="fa fa-cog" aria-hidden="true"></i></i><span class="nav-label">Services</span> <i class="fa fa-angle-down angle" aria-hidden="true"></i></div>
-                    <div id="demo2" class="collapse in bor-zk">
-                        <ul>
-                            <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter Services</a></li>
-                            <li><a href=""><i class="fa fa-cube" aria-hidden="true"></i> Nos Services</a></li>
-                        </ul>
-
-                    </div>
-
-                    <div class="fawnt " data-toggle="collapse" data-target="#demo3"><i class="fa fa-users" aria-hidden="true"></i></i></i><span class="nav-label">Utilisateurs</span> <i class="fa fa-angle-down angle" aria-hidden="true"></i></div>
-                    <div id="demo3" class="collapse in bor-zk">
-                        <ul>
-                            <li><a href="{{url('/admin/user/ajouteruser')}}"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter utilisateur</a></li>
-                            <li><a href="{{url('/admin/user/afficheusers')}}"><i class="fa fa-cube" aria-hidden="true"></i> utilisateurs</a></li>
-                        </ul>
-
-                    </div> 
-                    <div class="fawnt "><a style="color: #adb6be;" href="{{url('/admin/Reserv/boitereservation')}}"><i class="fa fa-envelope" aria-hidden="true"></i></i><span class="nav-label">Boite Réservation</span></a> </div>
-
-                     <div class="fawnt "><a style="color: #adb6be;" href="{{url('index')}}"><i class="fa fa-eye" aria-hidden="true"></i><span class="nav-label">Voir le site</span></a> </div>
-
-
-
-
-                    </div>
-
-                </li>
-            </ul>
-        </nav>
-
-    </aside>
-    <!-- /Fin sidebar -->
-	<!-- /Fin sidebar -->
-
+        <!--**********************************
+            Content body end
+        ***********************************-->
     
-        @yield('content')
-   
-<!-- 
-        <script src="{{asset('js/jquery.min.js')}}"></script>
-      <script src="{{asset('js/jquery-migrate-3.0.1.min.js')}}"></script>
-      <script src="{{asset('js/popper.min.js')}}"></script>
-      <script src="{{asset('js/bootstrap.min.js')}}"></script>
-      <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
-      <script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
-      <script src="{{asset('js/jquery.stellar.min.js')}}"></script>
-      <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-      <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
-      <script src="{{asset('js/aos.js')}}"></script>
-      <script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
-      <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
-      <script src="{{asset('js/jquery.timepicker.min.js')}}"></script>
-      <script src="{{asset('js/scrollax.min.js')}}"></script>
-      <script src="{{asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')}}"></script>
-      <script src="{{asset('js/google-map.js')}}"></script>
-      <script src="{{asset('js/main.js')}}"></script> -->
-      <!-- <script src="{{asset('plugins/common/common.min.js')}}"></script>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+    <script src="{{asset('plugins/common/common.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
     <script src="{{asset('js/settings.js')}}"></script>
     <script src="{{asset('js/gleek.js')}}"></script>
-    <script src="{{asset('js/styleSwitcher.js')}}"></script> -->
+    <script src="{{asset('js/styleSwitcher.js')}}"></script>
+  <!-- Chartjs -->
+  <script src="{{asset('plugins/chart.js/Chart.bundle.min.js')}}"></script>
+  <!-- Circle progress -->
+  <script src="{{asset('plugins/circle-progress/circle-progress.min.js')}}"></script>
+  <!-- Datamap -->
+  <script src="{{asset('plugins/d3v3/index.js')}}"></script>
+  <script src="{{asset('plugins/topojson/topojson.min.js')}}"></script>
+  <script src="{{asset('plugins/datamaps/datamaps.world.min.js')}}"></script>
+  <!-- Morrisjs -->
+  <script src="{{asset('./plugins/raphael/raphael.min.js')}}"></script>
+  <script src="{{asset('./plugins/morris/morris.min.js')}}"></script>
+  <!-- Pignose Calender -->
+  <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
+  <script src="{{asset('plugins/pg-calendar/js/pignose.calendar.min.js')}}"></script>
+  <!-- ChartistJS -->
+  <script src="{{asset('plugins/chartist/js/chartist.min.js')}}"></script>
+  <script src="{{asset('plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js')}}"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="{{asset('js/script.js')}}"></script>
+  <script src="{{asset('js/app.js')}}"></script>
+  <script src="{{asset('./plugins/sweetalert/js/sweetalert.min.js')}}"></script>
+  <script src="{{asset('./plugins/sweetalert/js/sweetalert.init.js')}}"></script>
 
-
-  
-
-
-
+    <script src="{{asset('js/dashboard/dashboard-1.js')}}"></script>
+    <script src="{{asset('plugins/tables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('plugins/tables/js/datatable/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('plugins/tables/js/datatable-init/datatable-basic.min.js')}}"></script>
+          
 </body>
-
 </html>

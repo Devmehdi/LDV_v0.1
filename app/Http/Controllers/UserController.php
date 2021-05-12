@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use App\Http\Resources\UserResource;
 
 class UserController extends Controller
@@ -13,7 +14,9 @@ class UserController extends Controller
     }
     public function ajouteruser()
     {
-        return view("adminpages.adduser");
+        $rl=new Role();
+        $roles=getAll($rl);
+        return view("adminpages.adduser",array('roles'=>$roles));
     }
     public function afficheusers()
     {
@@ -23,17 +26,24 @@ class UserController extends Controller
     public function ajouterUsertodb(Request $request)
     {
         $user=new User();
-        $user->nom=$request->nom;
-        $user->telephone=$request->telephone;
-        $user->username=$request->login;
-        $user->addresse=$request->adresse;
-        $user->email=$request->email;
-        $user->password=bcrypt($request->mdp);
-        $user->prenom=$request->prenom;
-        $user->role_id=$request->selectrole;
+        $user->nom=$request->input('nom');
+        $user->telephone=$request->input('telephone');
+        $user->username=$request->input('login');
+        $user->addresse=$request->input('adresse');
+        $user->email=$request->input('email');
+        $user->password=bcrypt($request->input('mdp'));
+        $user->prenom=$request->input('prenom');
+        $user->role_id=$request->input('selectrole');
+        if($request->hasFile('image'))
+        {
+           $photo=$request->file('image')->getClientOriginalName();
+           $destination=base_path() . '/public/images/users';
+           $request->file('image')->move($destination,$photo);
+           $user->image=$photo;
+        }
         $user->save();
         
-        return response()->json("done",200);
+        return redirect("/admin/user/afficheusers");
     }
     public function destroy($id)
     {
@@ -44,7 +54,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = user::find($id);
-        return view('adminpages.updateuser',array('user'=>$user));
+        $rl=new Role();
+        $roles=getAll($rl);
+        return view('adminpages.updateuser',array('user'=>$user,'roles'=>$roles));
     }
     // update post
     public function update($id, Request $request)
@@ -60,6 +72,13 @@ class UserController extends Controller
         $user->password=bcrypt($request->input('mdp'));
         $user->username=$request->input('login');
         $user->role_id=$request->input('selectrole');
+        if($request->hasFile('image'))
+        {
+           $photo=$request->file('image')->getClientOriginalName();
+           $destination=base_path() . '/public/images/users';
+           $request->file('image')->move($destination,$photo);
+           $user->image=$photo;
+        }
         $user->save();
         return redirect('/admin/user/afficheusers');
     }

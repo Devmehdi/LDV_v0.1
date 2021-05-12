@@ -18,11 +18,14 @@ class ReservationController extends Controller
     public function boitereservation()
     {
         $reservations= Reservation::all()->sortBy('confirmation');
-        return view("adminpages.boitereservation",array('reservations'=>$reservations));
+        $reserCount= Reservation::where('confirmation','=',0);
+        $count=$reserCount->count();
+        return view("adminpages.boitereservation",array('reservations'=>$reservations,"count"=>$count));
     }
     public function readreservation($id)
     {
         $reservation = Reservation::find($id);
+      
         if($reservation!=null)
         {
            $voiture=Voiture::find($reservation->voiture_id);

@@ -7,6 +7,7 @@ use App\Models\Voiture;
 use App\Models\Coleur;
 use App\Models\Carburant;
 use App\Models\Marque;
+use App\Models\Agence;
 use App\Http\Resources\VoitureResource;
 use App\Models\Type;
 
@@ -19,6 +20,21 @@ class VoitureController extends Controller
     public function details()
     {
         return view("pages.detailsvoiture");
+    }
+    public function getallcoleur()
+    {
+        $coleur=Coleur::all();
+        return response()->json($coleur);
+    }
+    public function getallmarque()
+    {
+        $marque=marque::all();
+        return response()->json($marque);
+    }
+    public function getallatype()
+    {
+        $type=Carburant::all();
+        return response()->json($type);
     }
     public function liste()
     {
@@ -52,7 +68,7 @@ class VoitureController extends Controller
         $voiture->description=$request->input('description');
         $voiture->save();
         
-        return redirect('/admin/voiture/ajoutervoiture');
+        return redirect('/admin/voiture/affichevoiture');
     }
     public function destroy($id)
     {
@@ -63,7 +79,15 @@ class VoitureController extends Controller
     public function edit($id)
     {
         $voiture = Voiture::find($id);
-        return view('adminpages.updatevoiture',array('voiture'=>$voiture));
+        $marqs=new Marque();
+        $cols=new Coleur();
+        $carb=new Carburant();
+        $ags=new Agence();
+        $coleurs=getAll($cols);
+        $marques=getAll($marqs);
+        $carburants=getAll($carb);
+        $agences=getAll($ags);
+        return view('adminpages.updatevoiture',array('voiture'=>$voiture,'coleurs'=>$coleurs,'marques'=>$marques,'carburants'=>$carburants,'agences'=>$agences));
     }
     // update post
     public function update($id, Request $request)
@@ -81,6 +105,13 @@ class VoitureController extends Controller
         $voiture->agence_id=$request->input('agence');
         $voiture->marque_id=$request->input('marque');
         $voiture->description=$request->input('description');
+        if($request->hasFile('image'))
+        {
+           $photo=$request->file('image')->getClientOriginalName();
+           $destination=base_path() . '/public/images/voitures';
+           $request->file('image')->move($destination,$photo);
+           $voiture->image=$photo;
+        }
         $voiture->save();
         return redirect('admin/voiture/affichevoiture');
     }

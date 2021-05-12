@@ -7,7 +7,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Nom de voiture</label>
-                                        <input type="text" class="form-control" v-model="nom" placeholder="Nom">
+                                        <input type="text" class="form-control" required v-model="nom" placeholder="Nom">
                                         <div v-for="error in nomerror" :key="error.index">
                                             <span style="color:red;font-size:13px">{{error}} *</span>
                                         </div>
@@ -65,10 +65,9 @@
                                 <div class="form-group col-md-6">
                                     <label>Coleur</label>
                                     <select id="inputState" v-model="selectcolor" class="form-control">
-                                        <option selected="selected">Choose...</option>
+                                        <option selected="selected" value="-1">Sélectionné</option>
                                         <option value="1">Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+
                                     </select>
                                      <div v-for="error in selectcolorerror" :key="error.index">
                                             <span style="color:red;font-size:13px">{{error}} *</span>
@@ -132,6 +131,7 @@
                         prix:'',
                         selectagence:'',
                         matricule:'',
+                        colors:[],
                         errors:[],
                         nomerror:[],
                         selecttypeerror:[],
@@ -201,6 +201,16 @@
                   });
                 }
             },
+             getcoleur()
+	         {
+                axios.get('http://localhost:8000/api/coleur')
+                .then((Response)=>{
+                        this.colors=Response.data;
+                  }).catch(function(error)
+                {
+                  console.log(error);
+                })
+	         },
         },
      
     }

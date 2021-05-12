@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Modifier Utilisateur</h4>
                         <div class="basic-form">
-                            <form action="{{url('admin/user/'.$user->id)}}" method="POST">
+                            <form action="{{url('admin/user/'.$user->id)}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PUT">
                                 @csrf
                                 <div class="form-row">
@@ -56,10 +56,10 @@
                                     <div class="form-group col-md-6">
                                         <label>Role</label>
                                         <select id="inputState" name="selectrole" class="form-control">
-                                            <option selected="selected">Choose...</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                            <option selected="selected">Selectionné un Role</option>
+                                            @foreach ($roles as $role)
+                                               <option value="{{$role->id}}">{{$role->role}}</option>
+                                            @endforeach
                                         </select>
                                           <div>
                                                 <span style="color:red; font-size:13px"></span>

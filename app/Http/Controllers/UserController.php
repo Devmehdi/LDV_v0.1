@@ -132,4 +132,9 @@ class UserController extends Controller
         $users=UserResource::collection(User::all());
         return view("adminpages.profil",array('users'=>$users));
     }
+    public function afficheCurrentUser()
+    {
+        $users=UserResource::collection(User::all());
+        return view("adminpages.profil",array('users'=>$users));
+    }
 }

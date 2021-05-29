@@ -90,9 +90,14 @@ Route::post('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajout
 Route::get('admin/user/{id}/edit','App\Http\Controllers\userController@edit');
 Route::get('admin/user/{id}/details','App\Http\Controllers\userController@edit');
 
+
 Route::PUT('/admin/user/profil/{id}','App\Http\Controllers\UserController@updateprofil');
 Route::get('/admin/userprofil/{id}/edit','App\Http\Controllers\UserController@editprofil');
 Route::get('/admin/profil','App\Http\Controllers\UserController@afficheCurrentUser');
+
+Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update');
+Route::get('/admin/profil/','App\Http\Controllers\userController@afficheCurrentUser');
+
 
 Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update')->middleware('auth');
 Route::get('notification','App\Http\Controllers\NotificationController@getnotification');

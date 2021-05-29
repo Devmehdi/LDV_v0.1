@@ -26,83 +26,115 @@
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Nom </label>
-                                        <input type="text" class="form-control" name="nom"  placeholder="Nom">
-                                          <div>
-                                            <span style="color:red; font-size:13px"></span>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Prénom </label>
-                                        <input type="text" class="form-control" name="prenom" placeholder="Prénom" >
+                                        <label>Nom <span style="color:red">*</span></label>
+                                        <input type="text" class="form-control" name="nom" value="{{old('nom')}}"  placeholder="Nom" required>
+                                        @if ($errors->get('nom'))
+                                        @foreach ($errors->get('nom') as $error)
                                         <div>
-                                            <span style="color:red; font-size:13px"></span>
+                                            <span style="color:red; font-size:13px">{{$error}}</span>
                                         </div>
+                                @endforeach
+                               @endif
                                     </div>
-                                   
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Email"  >
-                                    <div>
-                                   <span style="color:red; font-size:13px"></span>
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" name="login" placeholder="Username" >
-                                    <div>
-                                        <span style="color:red; font-size:13px"></span>
+                                    <div class="form-group col-md-6">
+                                        <label>Prénom <span style="color:red">*</span></label>
+                                        <input type="text" class="form-control" name="prenom" value="{{old('prenom')}}"  placeholder="Prénom" required>
+                                        @if ($errors->get('prenom'))
+                                        @foreach ($errors->get('prenom') as $error)
+                                        <div>
+                                            <span style="color:red; font-size:13px">{{$error}}</span>
+                                        </div>
+                                @endforeach
+                               @endif
                                     </div>
                                 </div>
                                 <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label>Email <span style="color:red">*</span></label>
+                                        <input type="email" class="form-control" name="email" value="{{old('email')}}"  placeholder="Email"  required>
+                                        @if ($errors->get('email'))
+                                        @foreach ($errors->get('email') as $error)
+                                        <div>
+                                            <span style="color:red; font-size:13px">{{$error}}</span>
+                                        </div>
+                                @endforeach
+                               @endif
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Username <span style="color:red">*</span></label>
+                                        <input type="text" class="form-control" value="{{old('login')}}" name="login" placeholder="Username" required>
+                                        @if ($errors->get('login'))
+                                        @foreach ($errors->get('login') as $error)
+                                        <div>
+                                            <span style="color:red; font-size:13px">{{$error}}</span>
+                                        </div>
+                                @endforeach
+                               @endif
+                                    </div>
+                            </div>
+                                <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Role</label>
-                                        <select id="inputState" name="selectrole" class="form-control">
+                                        <label>Role <span style="color:red">*</span></label>
+                                        <select id="inputState" name="selectrole" value="{{old('selectrole')}}" class="form-control" required>
                                             <option selected="selected" value="1">Selectionné un Role</option>
                                             @foreach ($roles as $role)
                                                <option value="{{$role->id}}">{{$role->role}}</option>
                                             @endforeach
                                         </select>
-                                          <div>
-                                                <span style="color:red; font-size:13px"></span>
-                                            </div>
+                                         
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Telephone</label>
-                                        <input type="text" class="form-control"  name="telephone" >
-                                         <div>
-                                            <span style="color:red; font-size:13px"></span>
-                                        </div>
+                                        <label>Telephone <span style="color:red;">*</span></label>
+                                        <input type="text" class="form-control"  value="{{old('selectrole')}}" name="telephone" required>
+                                                @if ($errors->get('telephone'))
+                                                @foreach ($errors->get('telephone') as $error)
+                                                <div>
+                                                    <span style="color:red; font-size:13px">{{$error}}</span>
+                                                </div>
+                                        @endforeach
+                                    @endif 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control" name="adresse" placeholder="Adresse" >
+                                    <label>Address <span style="color:red;">*</span></label>
+                                    <input type="text" class="form-control" name="adresse" value="{{old('selectrole')}}" placeholder="Adresse" required>
+                                    @if ($errors->get('adresse'))
+                                    @foreach ($errors->get('adresse') as $error)
+                                    <div>
+                                        <span style="color:red; font-size:13px">{{$error}}</span>
+                                    </div>
+                            @endforeach
+                        @endif 
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Mot de passe</label>
-                                        <input type="password" name="mdp" class="form-control"  >
-                                         <div>
-                                                <span style="color:red; font-size:13px"></span>
-                                            </div>
+                                        <label>Mot de passe <span style="color:red;">*</span></label>
+                                        <input type="password" name="mdp" value="{{old('mdp')}}" class="form-control" required >
+                                        @if ($errors->get('mdp'))
+                                        @foreach ($errors->get('mdp') as $error)
+                                        <div>
+                                            <span style="color:red; font-size:13px">{{$error}}</span>
+                                        </div>
+                                @endforeach
+                            @endif 
+
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Confirm Mot de passe</label>
-                                        <input type="Password" name="cmdp" class="form-control" >
-                                        <div>
-                                            <span style="color:red; font-size:13px"></span>
-                                        </div>
+                                        <label>Confirm Mot de passe <span style="color:red;">*</span></label>
+                                        <input type="Password" name="cmdp" value="{{old('cmdp')}}" class="form-control" required>
+                                        @if ($errors->get('cmdp'))
+                                                @foreach ($errors->get('cmdp') as $error)
+                                                    <div>
+                                                        <span style="color:red; font-size:13px">{{$error}}</span>
+                                                    </div>
+                                                @endforeach
+                                         @endif 
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-
-                                    <label>Image</label>
-                                    <input type="file" name="image" class="form-control" placeholder="">
+                                    
+                                    <label>Image </label>
+                                    <input type="file" name="image" value="{{old('image')}}" class="form-control" placeholder="">
                                 </div>
                                 <button type="submit" class="btn btn-dark">Submit</button>
                                 <a href="/admin/user/afficheusers" class="btn btn-secondary">Annuler</a>

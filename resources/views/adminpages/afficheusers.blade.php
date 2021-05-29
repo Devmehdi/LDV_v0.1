@@ -18,11 +18,11 @@
     <div class="row">
         <div class="col-12">
             
-            <div class="card" style="margin:130px; position: absolute; top: -100px;">
+            <div class="card" >
                 <div class="row">
                 
                     <div class="col-4">
-                        <a href="#" style="margin: 20px" class="btn btn-primary">Ajouter nouveau</a>
+                        <a href="/admin/user/ajouteruser" style="margin: 20px" class="btn btn-primary">Ajouter nouveau</a>
                     </div>
                 </div>
                 <div class="card-body">

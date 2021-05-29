@@ -2269,6 +2269,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -39793,7 +39794,9 @@ var render = function() {
   return _c("li", { staticClass: "icons dropdown" }, [
     _c(
       "a",
-      { attrs: { href: "javascript:void(0)", "data-toggle": "dropdown" } },
+      {
+        attrs: { href: "javascript:void(0)", "data-toggle": "dropdown-toggle" }
+      },
       [
         _c("i", { staticClass: "mdi mdi-bell-outline" }),
         _vm._v(" "),

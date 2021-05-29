@@ -21,28 +21,12 @@
     <link href="{{asset('plugins/sweetalert/css/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body>
-  
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
+   
+      
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
      
             @yield('content')
        
-        <!--**********************************
-            Content body end
-        ***********************************-->
-    
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
 
     <script src="{{asset('plugins/common/common.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>

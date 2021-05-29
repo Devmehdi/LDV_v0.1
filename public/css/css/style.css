@@ -140,8 +140,16 @@ body {
   .nav-header,.btn-primary ,.page-item.active .page-lin {
     background-color: #fc983c!important;
     border-color: #fc983c!important;
+    
 }
+.header , .nav-header , .nk-sidebar {
+  position: fixed!important;
 
+}
+.nk-sidebar {
+  padding-bottom: 85px!important;
+
+}
   .menu-is-active .nk-sidebar {
     width: 3.75rem;
     overflow: visible;

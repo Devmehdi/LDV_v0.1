@@ -1,5 +1,6 @@
 <template>
-      <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+      <li class="icons dropdown">
+          <a href="javascript:void(0)" data-toggle="dropdown-toggle">
                                 <i class="mdi mdi-bell-outline"></i>
                                 <div v-if="notifs.length>0">
                                         <span class="badge badge-pill gradient-2 badge-primary">{{notifs.length}}</span>

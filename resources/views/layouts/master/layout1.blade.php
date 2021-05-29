@@ -125,7 +125,7 @@
         <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    @if (Auth::user()->role_id==1)
+                    
                     <li>
                         <a class="has-arrow" href="{{url('/dashboard')}}" aria-expanded="false">
                             <i class="icon-home menu-icon"></i><span class="nav-text">Dashboard</span>
@@ -151,57 +151,6 @@
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">
-                            <i class="icon-people menu-icon"></i><span class="nav-text">Utilisateur</span>
-                        </a>
-                        
-                        <ul aria-expanded="false">
-                            
-                            <li><a href="{{url('/admin/user/ajouteruser')}}">Nouvelle Utilisateur</a></li>
-                            <li><a href="{{url('/admin/user/afficheusers')}}">Nos Utilisateurs</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                        </ul>
-
-                    </li>
-                    
-                    <li>
-                        <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
-                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Boite Réservation</span>
-                        </a>
-                    </li>
-                    <li style="position: absolute;bottom: 0;width: 100%">
-                        <a class="has-arrow" href="{{url('index')}}" aria-expanded="false">
-                            <i class="icon-eye menu-icon"></i><span class="nav-text"> Voir site web</span>
-                        </a>
-                    </li>     
-                    @else
-                    <li>
-                        <a class="has-arrow" href="{{url('/dashboard')}}" aria-expanded="false">
-                            <i class="icon-home menu-icon"></i><span class="nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
-                            <i class="icon-map menu-icon"></i><span class="nav-text">Agence</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{url('/admin/agence/ajouteragence')}}">Nouvelle Agence</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                            <li><a href="{{url('/admin/agence/afficheagence')}}">Nos Agences</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">
-                            <i class="icon-star menu-icon"></i><span class="nav-text">Voiture</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{url('/admin/voiture/ajoutervoiture')}}">Nouvelle Voiture</a></li>
-                            <li><a href="{{url('/admin/voiture/affichevoiture')}}">Nos Voitures</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                        </ul>
-                    </li>
-                  
                     
                     <li>
                         <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
@@ -213,8 +162,6 @@
                             <i class="icon-eye menu-icon"></i><span class="nav-text"> Voir site web</span>
                         </a>
                     </li>
-                    @endif
-                   
                 </ul>
                    
             </div>

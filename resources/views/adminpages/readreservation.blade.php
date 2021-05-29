@@ -10,12 +10,12 @@
                     <div class="email-left-box"><a href="email-compose.html" class="btn btn-primary btn-block">Back</a>
                         
                     </div>
-                    <div class="email-right-box">
+                    <div class="email-right-box" style="font-size:18px">
                         <div class="read-content">
                             <div class="media pt-5">
                                 <div class="media-body">
                                     <h5 class="m-b-3">De : {{$reservation->fullname}}</h5>
-                                    <p class="m-b-2">{{$reservation->created_at}}</p>
+                                    <p class="m-b-2">Du : {{$reservation->created_at->format('d-m-y')}}</p>
                                 </div>
                                 
                             </div>
@@ -25,8 +25,10 @@
                                     <h4 class="m-0 text-primary">Nouvelle demande du {{$reservation->date_debut}} au {{$reservation->date_fin}}</h4>
                                 </div>
                             </div>
-                            <p><strong>{{$reservation->fullname}}</strong> a demander la voiture {{$voiture->voiture_nom}} le {{$reservation->created_at}} pour une durée de {{$reservation->duree}} jour(s).<br> merci de confirmer la demande </p>
+                            <p><strong>{{$reservation->fullname}}</strong> a demander la voiture {{$voiture->voiture_nom}} le {{$reservation->created_at->format('d-m-y')}} pour une durée de {{$reservation->duree}} jour(s).<br> merci de confirmer la demande </p>
+                            <br/>
 
+                            Telephone: {{$reservation->telephone}}
                             <hr>
 
                             <form action="{{url('confirmation/'.$reservation->id)}}" method="post">

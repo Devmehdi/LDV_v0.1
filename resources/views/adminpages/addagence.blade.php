@@ -13,7 +13,6 @@
     </div>
 </div>
     
-
     <div class="container-fluid">
         <div class="row">
            
@@ -28,7 +27,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Nom d'agence</label>
-                                            <input type="text" class="form-control" name="nom"  placeholder="Nom d'agence">
+                                            <input type="text" class="form-control" name="nom" value="{{old('nom')}}" required placeholder="Nom d'agence">
                                             @if ($errors->get('nom'))
                                                 @foreach ($errors->get('nom') as $error)
                                                 <div>
@@ -42,7 +41,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Ville</label>
-                                            <select id="inputState" name="ville" class="form-control">
+                                            <select id="inputState" name="ville" value="{{old('ville')}}" class="form-control">
                                                 <option selected="selected" value="Casablanaca">Casablanca</option>
                                                 <option value="casablanca">Option 1</option>
                                                 <option value="Rabat">Option 2</option>
@@ -58,7 +57,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Telephone</label>
-                                            <input type="text" class="form-control" name="telephone">
+                                            <input type="text" class="form-control" value="{{old('telephone')}}" name="telephone">
                                                 @if ($errors->get('telephone'))
                                                     @foreach ($errors->get('telephone') as $error)
                                                     <div>
@@ -70,7 +69,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" name="adresse" placeholder="1234 Main St">
+                                        <input type="text" class="form-control" name="adresse" value="{{old('adresse')}}" placeholder="Addresse">
                                         @if ($errors->get('adresse'))
                                                 @foreach ($errors->get('adresse') as $error)
                                                 <div>
@@ -79,10 +78,13 @@
                                               @endforeach
                                        @endif
                                     </div>
-                                   
+                                    <div class="form-group col-md-6">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control" placeholder="">
+                                    </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea rows="10" class="form-control"  placeholder="Enter description" name="description"></textarea>
+                                        <textarea rows="10" class="form-control"  placeholder="description" value="{{old('description')}}" name="description"></textarea>
                                         @if ($errors->get('description'))
                                                 @foreach ($errors->get('description') as $error)
                                                 <div>
@@ -91,10 +93,7 @@
                                          @endforeach
                                   @endif
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Image</label>
-                                        <input type="file" name="image" class="form-control" placeholder="">
-                                    </div>
+   
                                     <button type="submit" class="btn btn-dark">Submit</button>
                                     <a href="{{url('admin/agence/afficheagence')}}"class="btn btn-secondary" type="reset">Annuler</a>
                                 </form>

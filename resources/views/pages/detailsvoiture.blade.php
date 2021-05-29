@@ -9,10 +9,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="car-details">
-                    <div class="img" style="background-image: url(images/Sandero-Stepway.jpg);"></div>
+                    <div class="img" style="background-image: url({{url('images/voitures/'.$voiture->image)}});"></div>
                     <div class="text text-center">
-                        <span class="subheading">Dacia</span>
-                        <h2>Dacia Sandero Stepway</h2>
+                        <span class="subheading">{{$voiture->model}}</span>
+                        <h2>{{$voiture->voiture_nom}}</h2>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="text">
                       <h3 class="heading mb-0 pl-3">
                           Mileage
-                          <span>40,000</span>
+                          <span>{{$voiture->KM}}</span>
                       </h3>
                   </div>
               </div>
@@ -41,7 +41,7 @@
                     <div class="text">
                       <h3 class="heading mb-0 pl-3">
                           Transmission
-                          <span>Manual</span>
+                          <span>{{$voiture->categorie}}</span>
                       </h3>
                   </div>
               </div>
@@ -56,7 +56,7 @@
                     <div class="text">
                       <h3 class="heading mb-0 pl-3">
                           Seats
-                          <span>5 Adults</span>
+                          <span>{{$voiture->Seats}} Adults</span>
                       </h3>
                   </div>
               </div>
@@ -71,7 +71,7 @@
                     <div class="text">
                       <h3 class="heading mb-0 pl-3">
                           Luggage
-                          <span>4 Bags</span>
+                          <span>{{$voiture->Luggage}} Bags</span>
                       </h3>
                   </div>
               </div>
@@ -85,8 +85,8 @@
                     <div class="icon"><span class="flaticon-diesel"></span></div>
                     <div class="text">
                       <h3 class="heading mb-0 pl-3">
-                          Fuel
-                          <span>Petrol</span>
+                          Carburant
+                          <span>{{$carb->type_carburant}}</span>
                       </h3>
                   </div>
               </div>
@@ -145,8 +145,8 @@
 
                           
                           <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                  <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                            <p>{{$voiture->description}}</p>
+                                  
                           </div>
                         </div>
                       </div>
@@ -154,7 +154,7 @@
                  </div>
                 <div class="row" >
             <div class="btn-plus">
-         <a href="Reserve.html">Reserver</a>
+         <a href="{{url('/Reserver/Voiture/'.$voiture->id)}}">Reserver</a>
         </div>
       </div>
     </div>

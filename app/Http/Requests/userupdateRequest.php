@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VoitureRequest extends FormRequest
+class userupdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,17 +25,10 @@ class VoitureRequest extends FormRequest
     {
         return [
             'nom'=>'required',
-            'selectmarque'=>'required',
-            'selectagence'=>'required',
-            'selecttype'=>'required',
-            'selectcolor'=>'required',
-            'selectcarburant'=>'required',
-            'prix'=>'required',
-            'image'=>'required',
-           // 'Luggage'=>'required',
-            'KM'=>'required',
-            //'seats'=>'required',
-            'description'=>'required'
+            'prenom'=>'required',
+            'adresse'=>'required',
+            'telephone'=>'required',
+            'selectrole'=>'required',
         ];
     }
 }

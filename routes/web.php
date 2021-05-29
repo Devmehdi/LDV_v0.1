@@ -23,7 +23,7 @@ Auth::routes();
 // Voiture
 
 // partie user
-Route::get('/details','App\Http\Controllers\VoitureController@details');
+Route::get('/details/{id}','App\Http\Controllers\VoitureController@details');
 Route::get('/liste','App\Http\Controllers\VoitureController@liste');
 Route::get('/index','App\Http\Controllers\VoitureController@index');
 // partie admin
@@ -66,6 +66,9 @@ Route::post('admin/agence/{id}/details','App\Http\Controllers\AgenceController@d
 
 Route::PUT('/admin/agence/{id}','App\Http\Controllers\AgenceController@update')->middleware('auth');
 
+Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update');
+Route::get('/admin/profil/','App\Http\Controllers\userController@afficheCurrentUser');
+
 //Route::delete('/admin/agence/delete/{id}','App\Http\Controllers\AgenceController@destroy');
 
 Route::post('/admin/agence/ajouteragence','App\Http\Controllers\AgenceController@ajouterAgc')->middleware('auth');
@@ -87,13 +90,20 @@ Route::post('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajout
 Route::get('admin/user/{id}/edit','App\Http\Controllers\userController@edit');
 Route::get('admin/user/{id}/details','App\Http\Controllers\userController@edit');
 
-Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update');
-Route::get('/admin/profil/','App\Http\Controllers\userController@afficheCurrentUser');
+Route::PUT('/admin/user/profil/{id}','App\Http\Controllers\UserController@updateprofil');
+Route::get('/admin/userprofil/{id}/edit','App\Http\Controllers\UserController@editprofil');
+Route::get('/admin/profil','App\Http\Controllers\UserController@afficheCurrentUser');
 
+Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update')->middleware('auth');
+Route::get('notification','App\Http\Controllers\NotificationController@getnotification');
 //Route::delete('/admin/user/delete/{id}','App\Http\Controllers\AgenceController@destroy');
+
 
 Route::Delete('/user/{id}/deleted','App\Http\Controllers\UserController@destroy')->middleware('auth');
 //Reservation
+//partie User 
+Route::get('/Reserver/Voiture/{id}','App\Http\Controllers\ReservationController@getvoiturebyid');
+Route::post('/Reservation/voiture','App\Http\Controllers\ReservationController@reserver');
 // partie admin
 Route::get('/admin/Reserv/boitereservation','App\Http\Controllers\ReservationController@boitereservation')->middleware('auth');
 Route::get('/admin/Reserv/reservation/{id}','App\Http\Controllers\ReservationController@readreservation')->middleware('auth');

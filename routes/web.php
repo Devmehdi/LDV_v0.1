@@ -81,14 +81,15 @@ Route::Delete('/agence/{id}/deleted','App\Http\Controllers\AgenceController@dest
 // partie user
 Route::get('/contact','App\Http\Controllers\UserController@contact');
 // partie admin
-Route::get('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouteruser')->middleware('auth');
-Route::get('/admin/user/afficheusers','App\Http\Controllers\UserController@afficheusers')->middleware('auth');
-Route::post('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouterUsertodb')->middleware('auth');
-Route::get('admin/user/{id}/edit','App\Http\Controllers\userController@edit')->middleware('auth');;
-Route::get('admin/user/{id}/details','App\Http\Controllers\userController@edit')->middleware('auth');
+Route::get('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouteruser');
+Route::get('/admin/user/afficheusers','App\Http\Controllers\UserController@afficheusers');
+Route::post('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouterUsertodb');
+Route::get('admin/user/{id}/edit','App\Http\Controllers\userController@edit');
+Route::get('admin/user/{id}/details','App\Http\Controllers\userController@edit');
 
-Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update')->middleware('auth');
-Route::get('notification','App\Http\Controllers\NotificationController@getnotification');
+Route::PUT('/admin/user/{id}','App\Http\Controllers\UserController@update');
+Route::get('/admin/profil/','App\Http\Controllers\userController@afficheCurrentUser');
+
 //Route::delete('/admin/user/delete/{id}','App\Http\Controllers\AgenceController@destroy');
 
 Route::Delete('/user/{id}/deleted','App\Http\Controllers\UserController@destroy')->middleware('auth');

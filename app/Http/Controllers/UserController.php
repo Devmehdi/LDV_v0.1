@@ -127,4 +127,9 @@ class UserController extends Controller
         $user->save();
         return redirect('/admin/profil');
     }
+    public function afficheCurrentUser()
+    {
+        $users=UserResource::collection(User::all());
+        return view("adminpages.profil",array('users'=>$users));
+    }
 }

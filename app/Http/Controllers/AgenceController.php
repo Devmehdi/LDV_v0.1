@@ -8,6 +8,7 @@ use App\Models\Agence;
 use App\Models\Coleur;
 use App\Models\Carburant;
 use App\Models\Marque;
+use App\Models\Ville;
 use App\Http\Resources\AgenceResource;
 use App\Http\Requests\AgenceRequest;
 
@@ -20,7 +21,8 @@ class AgenceController extends Controller
     }
     public function ajouteragence()
     {
-        return view("adminpages.addagence");
+        $villes=Ville::where('statut','=','Active')->get();
+        return view("adminpages.addagence",array('villes'=>$villes));
     }
     public function ajouterAgc(AgenceRequest $request)
     {
@@ -84,7 +86,8 @@ class AgenceController extends Controller
     public function edit($id)
     {
         $agence = Agence::find($id);
-        return view('adminpages.updateagence',array('agence'=>$agence));
+        $villes=Ville::where('statut','=','Active')->get();
+        return view('adminpages.updateagence',array('agence'=>$agence,'villes'=>$villes));
     }
  
     // update post

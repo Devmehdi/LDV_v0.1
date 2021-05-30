@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Email <span style="color:red;">*</span></label>
+                                    <label>Address E-mail <span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" >
                                     @if ($errors->get('email'))
                                             @foreach ($errors->get('email') as $error)
@@ -54,29 +54,20 @@
                                             @endforeach
                                     @endif 
                                 </div>
-                                <div class="form-group">
-                                    <label>Username <span style="color:red;">*</span></label>
-                                    <input type="text" class="form-control" name="login" placeholder="Username" value="{{$user->username}}" >
-                                    @if ($errors->get('login'))
-                                        @foreach ($errors->get('login') as $error)
-                                                <div>
-                                                    <span style="color:red; font-size:13px">{{$error}}</span>
-                                                </div>
-                                        @endforeach
-                                    @endif 
-                                </div>
+                               
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Role <span style="color:red;">*</span></label>
-                                        <select id="inputState" name="selectrole" class="form-control">
-                                            <option selected="selected" value="1">Selectionné un Role</option>
-                                            @foreach ($roles as $role)
-                                               <option value="{{$role->id}}">{{$role->role}}</option>
+                                    <div class="form-group col-md-8">
+                                        <label>Username <span style="color:red;">*</span></label>
+                                        <input type="text" class="form-control" name="login" placeholder="Username" value="{{$user->username}}" >
+                                        @if ($errors->get('login'))
+                                            @foreach ($errors->get('login') as $error)
+                                                    <div>
+                                                        <span style="color:red; font-size:13px">{{$error}}</span>
+                                                    </div>
                                             @endforeach
-                                        </select>
-                                        
+                                        @endif 
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label>Telephone <span style="color:red;">*</span></label>
                                         <input type="text" class="form-control"  name="telephone" value="{{$user->telephone}}">
                                         @if ($errors->get('telephone'))

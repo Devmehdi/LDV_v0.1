@@ -7,6 +7,10 @@ pour obtenir votre voiture.
 
 Bon journée 
 
+NB: Le retard dans le retour de la voiture sera compté 
+
+Merci
+
 Email : Support@voituredor.ma
 Telephone : 0500000000/0600000000
 

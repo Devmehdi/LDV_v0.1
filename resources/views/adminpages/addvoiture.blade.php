@@ -70,11 +70,11 @@
                                   </div>
                                       <div class="form-group col-md-3">
                                       <label>Matricule</span></label>
-                                      <input type="text" name="matricule" class="form-control">
+                                      <input type="text" name="matricule" placeholder="12345-A-12" class="form-control">
                                   </div>
                                    <div class="form-group col-md-3">
                                       <label>Model</label>
-                                      <input type="text" name="model" class="form-control">
+                                      <input type="text" name="model" placeholder="Model" class="form-control">
                                   </div>
                               </div>
                               <div class="form-row">
@@ -133,7 +133,7 @@
                                   </div>
                                   <div class="form-group col-md-3">
                                   <label>Prix <span style="color:red">*</span></label>
-                                  <input type="text" name="prix" value="{{old('prix')}}" required class="form-control">
+                                  <input type="text" name="prix" value="{{old('prix')}}" placeholder="Prix" required class="form-control">
                                   @if ($errors->get('prix'))
                                   @foreach ($errors->get('prix') as $error)
                                   <div>
@@ -144,7 +144,7 @@
                               </div>
                               <div class="form-group col-md-3">
                                 <label>KM <span style="color:red">*</span></label>
-                                <input type="text" name="KM" value="{{old('KM')}}" required class="form-control">
+                                <input type="text" name="KM" value="{{old('KM')}}" placeholder="Kilometrage" required class="form-control">
                                 @if ($errors->get('KM'))
                                 @foreach ($errors->get('KM') as $error)
                                 <div>
@@ -156,6 +156,7 @@
                               </div>
                                <div class="form-row">
                              <div class="form-group col-md-6">
+                              
                                   <label>Image <span style="color:red">*</span></label>
                                   <input type="file" name="image" class="form-control" value="{{old('image')}}" required placeholder="">
                                   @if ($errors->get('image'))

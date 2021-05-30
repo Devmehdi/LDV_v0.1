@@ -13,15 +13,15 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Modifier le type</h4>
+                        <h4 class="card-title">Modifier la ville</h4>
                         <div class="basic-form">
-                            <form method="POST" action="{{url('/type/voiture/'.$carburant->id)}}">
+                            <form method="POST" action="{{url('/type/voiture/'.$ville->id)}}">
                                 <input type="hidden" name="_method" value="PUT">
                                 @csrf
                               <div class="form-row">
                                   <div class="form-group col-md-6">
-                                      <label>Type</label>
-                                      <input type="text" class="form-control" value={{$carburant->type_carburant}} name="nom" placeholder="Nom">
+                                      <label>Ville</label>
+                                      <input type="text" class="form-control" value={{$ville->designation}} name="nom" placeholder="Nom">
                                           <div>
                                               <span style="color:red;font-size:13px"></span>
                                           </div>

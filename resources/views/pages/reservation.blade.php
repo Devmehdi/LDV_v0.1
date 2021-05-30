@@ -18,19 +18,38 @@
                    <input type="text" class="form-control" value="{{$voiture->id}}" name="id" placeholder="Nom & prénom" hidden>
                </div>
                <div class="form-group">
-                <input type="text" class="form-control" value="{{$voiture->prix}}" name="prix" placeholder="prix" hidden>
+                <input type="text" class="form-control" value="{{$voiture->prix}}"  name="prix" placeholder="prix" hidden>
                 </div>
                 <div class="form-group">
                     <label for="">Nom & prénom</label>
-                    <input type="text" class="form-control" name="nom" placeholder="Nom & prénom">
+                    <input type="text" class="form-control" name="nom" required placeholder="Nom & prénom">
+                </div>
+                <div class="form-group">
+                    <label>Agence de départ <span style="color:red">*</span></label>
+                    <select id="inputState" name="agencedepart" value="{{old('agencedepart')}}" required class="form-control">
+                        <option selected="selected">Sélectionné l'agence de départ</option>
+                                @foreach ($agences as $agence)
+                                  <option  value={{$agence->id}}>{{$agence->agence_name}}</option>
+                                @endforeach
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label>Agence de fin <span style="color:red">*</span></label>
+                    <select id="inputState" name="agencefin" value="{{old('agencefin')}}" required class="form-control">
+                        <option selected="selected">Sélectionné l'agence de fin</option>
+                                @foreach ($agences as $agence)
+                                  <option  value={{$agence->id}}>{{$agence->agence_name}}</option>
+                                @endforeach
+                        </select>
+                  
                 </div>
                 <div class="form-group">
                     <label for="">Date début</label>
-                    <input type="Date" class="form-control" name="datedebut" placeholder="Date début">
+                    <input type="Date" class="form-control" name="datedebut" required placeholder="Date début">
                 </div>
                 <div class="form-group">
                     <label for="">Date fin</label>
-                    <input type="Date" class="form-control" name="datefin" placeholder="Date fin">
+                    <input type="Date" class="form-control" name="datefin" required placeholder="Date fin">
                 </div>
                   
                     <div class="form-group">
@@ -41,27 +60,46 @@
                 <input type="text" class="form-control" value="{{$voiture->id}}" name="id" placeholder="Nom & prénom" hidden>
            </div>
            <div class="form-group">
-            <input type="text" class="form-control" value="{{$voiture->prix}}" name="prix" placeholder="prix" hidden>
+            <input type="text" class="form-control" value="{{$voiture->prix}}" name="prix"  placeholder="prix" hidden>
             </div>
                     <div class="form-group">
                         <label for="">Nom & prénom</label>
-                        <input type="text" class="form-control" name="nom" placeholder="Nom & prénom">
+                        <input type="text" class="form-control" name="nom" required placeholder="Nom & prénom">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="Email" class="form-control" name="email" placeholder="E-mail">
+                        <input type="Email" class="form-control" name="email" required placeholder="E-mail">
                     </div>
                     <div class="form-group">
                         <label for="">Numéro de telephone</label>
-                        <input type="text" class="form-control" name="telephone" placeholder="Numéro de telephone">
+                        <input type="text" class="form-control" name="telephone" required placeholder="Numéro de telephone">
                       </div>
+                      <div class="form-group">
+                        <label>Agence de départ <span style="color:red">*</span></label>
+                        <select id="inputState" name="agencedepart" value="{{old('agencedepart')}}" required class="form-control">
+                            <option selected="selected">Sélectionné l'agence de départ</option>
+                                    @foreach ($agences as $agence)
+                                      <option  value={{$agence->id}}>{{$agence->agence_name}}</option>
+                                    @endforeach
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Agence de fin <span style="color:red">*</span></label>
+                        <select id="inputState" name="agencefin" value="{{old('agencefin')}}" required class="form-control">
+                            <option selected="selected">Sélectionné l'agence de fin</option>
+                                    @foreach ($agences as $agence)
+                                      <option  value={{$agence->id}}>{{$agence->agence_name}}</option>
+                                    @endforeach
+                            </select>
+                      
+                    </div>
                     <div class="form-group">
                         <label for="">Date début</label>
-                        <input type="Date" class="form-control" name="datedebut" placeholder="Date début">
+                        <input type="Date" class="form-control" name="datedebut" required placeholder="Date début">
                     </div>
                     <div class="form-group">
                         <label for="">Date fin</label>
-                        <input type="Date" class="form-control" name="datefin" placeholder="Date fin">
+                        <input type="Date" class="form-control" name="datefin" required placeholder="Date fin">
                         </div>
                     <div class="form-group">
                         <input type="submit" value="Resérver" class="btn btn-primary py-3 px-5">

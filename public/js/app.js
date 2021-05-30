@@ -2779,7 +2779,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [], this.nomerror = [], this.selecterror = [];
 
       if (!this.nom) {
-        this.nomerror.push("Type est obligatoire");
+        this.nomerror.push("Ville est obligatoire");
       }
 
       if (!this.selected) {
@@ -40672,7 +40672,7 @@ var render = function() {
               "div",
               { staticClass: "form-group col-md-6" },
               [
-                _c("label", [_vm._v("Type")]),
+                _c("label", [_vm._v("Ville")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [

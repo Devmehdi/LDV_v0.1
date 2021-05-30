@@ -30,7 +30,6 @@ class userprofilRequest extends FormRequest
             'adresse'=>'required',
             'login'=>'required',
             'telephone'=>'required',
-            'selectrole'=>'required',
             'mdp' => '',
             'cmdp' => 'confirmed'
         ];

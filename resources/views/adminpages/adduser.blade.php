@@ -95,7 +95,8 @@
                                     @endif 
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-row">
+                                <div class="form-group col-md-6">
                                     <label>Address <span style="color:red;">*</span></label>
                                     <input type="text" class="form-control" name="adresse" value="{{old('selectrole')}}" placeholder="Adresse" required>
                                     @if ($errors->get('adresse'))
@@ -103,8 +104,21 @@
                                     <div>
                                         <span style="color:red; font-size:13px">{{$error}}</span>
                                     </div>
-                            @endforeach
-                        @endif 
+                                    @endforeach
+                                    @endif 
+                                </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Agence <span style="color:red">*</span></label>
+                                        <select id="inputState" name="agence" value="{{old('agence')}}" required class="form-control">
+                                            <option selected="selected">Sélectionné l'agence</option>
+                                                    @foreach ($agences as $agence)
+                                                      <option  value={{$agence->id}}>{{$agence->agence_name}}</option>
+                                                    @endforeach
+                                            </select>
+                                      
+                                    
+                                </div>
+ 
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">

@@ -22,7 +22,7 @@
 	<ul class="tabs">
 		<li class="active">Voitures</li>
 		<li>Coleurs</li>
-        <li>Type de voiture</li>
+        <li>Villes</li>
 		<li>Marque</li>
 	</ul>
 
@@ -155,12 +155,12 @@
                 </div>
             </div>
             <div class="card-body">
-                <h4 class="card-title">Liste des types</h4>
+                <h4 class="card-title">Liste des villes</h4>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered zero-configuration">
                         <thead>
                             <tr>
-                              <th>Type</th>
+                              <th>Designation</th>
                               <th>Statut</th>
                               <th>Créé le</th>
                               <th>Modifier le</th>
@@ -168,21 +168,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach ($carburants as $carb)
+                          @foreach ($villes as $ville)
                               <tr>
-                                <td>{{$carb->type_carburant}}</td>
-                                <td>{{$carb->statut}}</td>
-                                <td>{{$carb->created_at}}</td>
-                                <td>{{$carb->update_at}}</td>
+                                <td>{{$ville->designation}}</td>
+                                <td>{{$ville->statut}}</td>
+                                <td>{{$ville->created_at}}</td>
+                                <td>{{$ville->update_at}}</td>
                                 <td>
-                                    <a href="{{url('admin/voituretype/'.$carb->id.'/edit')}}"><i style="margin-left:15px" class="zmdi zmdi-edit"></i></a>&nbsp;
+                                    <a href="{{url('admin/voituretype/'.$ville->id.'/edit')}}"><i style="margin-left:15px" class="zmdi zmdi-edit"></i></a>&nbsp;
                             </td>
                             </tr>
                           @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Type</th>
+                                <th>Designation</th>
                                 <th>Statut</th>
                                 <th>Créé le</th>
                                 <th>Modifier le</th>

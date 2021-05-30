@@ -11,6 +11,7 @@ use App\Models\Agence;
 use App\Http\Resources\VoitureResource;
 use App\Http\Requests\VoitureRequest;
 use App\Models\Type;
+use App\Models\Ville;
 
 class VoitureController extends Controller
 {
@@ -68,10 +69,10 @@ class VoitureController extends Controller
     public function affichevoiture()
     {
         $voitures=VoitureResource::collection(Voiture::all());
-        $carburants=Carburant::all();
+        $villes=Ville::all();
         $coleurs=Coleur::all();
         $marques=Marque::all();
-        return view("adminpages.affichevoiture",array('voitures'=>$voitures,'carburants'=>$carburants,'coleurs'=>$coleurs,'marques'=>$marques));
+        return view("adminpages.affichevoiture",array('voitures'=>$voitures,'villes'=>$villes,'coleurs'=>$coleurs,'marques'=>$marques));
     } 
     public function ajoutervtr(VoitureRequest $request)
     {
@@ -121,7 +122,7 @@ class VoitureController extends Controller
         return view('adminpages.updatevoiture',array('voiture'=>$voiture,'coleurs'=>$coleurs,'marques'=>$marques,'carburants'=>$carburants,'agences'=>$agences));
     }
     // update post
-    public function update($id, VoitureRequest $request)
+    public function update($id, Request $request)
     {
         $voiture = Voiture::find($id);
 
@@ -130,11 +131,12 @@ class VoitureController extends Controller
         $voiture->prix=$request->input('prix');
         $voiture->model=$request->input('model');
         $voiture->Enstock=true;
-        $voiture->type_id=$request->input('type');
-        $voiture->coleur_id=$request->input('coleur');
-        $voiture->carburant_id=$request->input('carb');
-        $voiture->agence_id=$request->input('agence');
-        $voiture->marque_id=$request->input('marque');
+        $voiture->categorie=$request->input('selecttype');
+        $voiture->coleur_id=$request->input('selectcolor');
+        $voiture->KM=$request->input('KM');
+        $voiture->carburant_id=$request->input('selectcarburant');
+        $voiture->agence_id=$request->input('selectagence');
+        $voiture->marque_id=$request->input('selectmarque');
         $voiture->description=$request->input('description');
         if($request->hasFile('image'))
         {
@@ -161,11 +163,13 @@ class VoitureController extends Controller
 
         return view('adminpages.ajoutertype');
     }
-    public function ajoutertpe(Request $request){
-        $carb=new Carburant();
-        $carb->type_carburant=$request->nom;
-        $carb->statut=$request->selected;
-        $carb->save();
+    public function ajoutertpe(Request $request)
+    {
+
+        $ville=new Ville();
+        $ville->designation=$request->nom;
+        $ville->statut=$request->selected;
+        $ville->save();
         return redirect('admin/voiture/affichevoiture');
     }
     public function ajoutermarque(Request $request){
@@ -181,16 +185,16 @@ class VoitureController extends Controller
     }
     public function edittype($id)
     {
-        $carburant = Carburant::find($id);
-        return view('adminpages.updatetype',array('carburant'=>$carburant));
+        $ville = Ville::find($id);
+        return view('adminpages.updatetype',array('ville'=>$ville));
     }
     // update post
     public function updatetype($id, Request $request)
     {
-        $carburant = Carburant::find($id);
-        $carburant->type_carburant=$request->input('nom');
-        $carburant->statut=$request->input('selected');
-        $carburant->save();
+        $ville = Ville::find($id);
+        $ville->designation=$request->input('nom');
+        $ville->statut=$request->input('selected');
+        $ville->save();
         return redirect('admin/voiture/affichevoiture');
     }
     public function editmarque($id)

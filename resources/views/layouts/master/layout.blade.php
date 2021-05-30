@@ -213,11 +213,8 @@
                             <i class="icon-eye menu-icon"></i><span class="nav-text"> Voir site web</span>
                         </a>
                     </li>
-<<<<<<< HEAD
                     @endif
                    
-=======
->>>>>>> d6bb431a30c5b9187fb61ced6002129794775e3f
                 </ul>
                    
             </div>

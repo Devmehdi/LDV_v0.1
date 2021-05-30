@@ -9,6 +9,7 @@ use App\Models\user;
 use App\Http\Resources\ReservationResource;
 use Illuminate\Support\Facades\Auth;
 
+
 use Mail;
 
 use App\Http\Requests;
@@ -91,41 +92,54 @@ class ReservationController extends Controller
     public function getvoiturebyid($id)
     {
             $voiture = Voiture::find($id);
-            return view('pages.reservation',array('voiture'=>$voiture));
+            $agences=Agence::all();
+            return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences));
     }
     public function reserver(Request $request)
     {
         $voiture=new Voiture();
+        $agences=new Agence();
         if(Auth::user())
         {
             $reservation=new Reservation();
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d',  $request->input('datedebut'));
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d', $request->input('datefin'));
+            $diff_in_days = $to->diffInDays($from);
+            return dd($diff_in_days);
             $reservation->fullname=$request->input('nom');
             $reservation->prix=$request->input('prix');
             $reservation->confirmation=0;
-            $reservation->duree=3;
+            $reservation->duree=$diff_in_days;
             $reservation->voiture_id=$request->input('id');
             $reservation->user_id=Auth::id();
-            $reservation->date_reservation="2021-05-29 12:07:11";
+            $reservation->date_reservation=\Carbon\Carbon::now();
             $reservation->date_debut=$request->input('datedebut');
             $reservation->date_fin=$request->input('datefin');
+            $reservation->agencedepart=$request->input('agencedepart');
+            $reservation->agencefin=$request->input('agencefin');
             $reservation->save();
-            return view('pages.reservation',array('voiture'=>$voiture))->with('message','votre demande a été enregistrer');
+            return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences))->with('message','votre demande a été enregistrer');
         }
         else{
             $reservation=new Reservation();
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d',  $request->input('datedebut'));
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d', $request->input('datefin'));
+            $diff_in_days = $to->diffInDays($from);
             $reservation->fullname=$request->input('nom');
             $reservation->email=$request->input('email');
             $reservation->prix=$request->input('prix');
             $reservation->telephone=$request->input('telephone');
             $reservation->confirmation=0;
-            $reservation->duree=3;
+            $reservation->duree=$diff_in_days;
             $reservation->voiture_id=$request->input('id');
             $reservation->user_id=0;
-            $reservation->date_reservation="2021-05-29 12:07:11";
+            $reservation->date_reservation=\Carbon\Carbon::now();
             $reservation->date_debut=$request->input('datedebut');
             $reservation->date_fin=$request->input('datefin');
+            $reservation->agencedepart=$request->input('agencedepart');
+            $reservation->agencefin=$request->input('agencefin');
             $reservation->save();
-            return view('pages.reservation',array('voiture'=>$voiture))->with('message','votre demande a été enregistrer');;
+            return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences))->with('message','votre demande a été enregistrer');;
         }
        
     }

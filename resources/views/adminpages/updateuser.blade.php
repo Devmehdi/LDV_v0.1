@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Prénom <span style="color:red;">*</span></label>
-                                        <input type="text" class="form-control" name="prenom" placeholder="Email" value="{{$user->prenom}}">
+                                        <input type="text" class="form-control" name="prenom" placeholder="Prénom" value="{{$user->prenom}}">
                                         @if ($errors->get('prenom'))
                                                 @foreach ($errors->get('prenom') as $error)
                                                         <div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Email <span style="color:red;">*</span></label>
-                                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" readonly>
+                                    <input type="email" class="form-control" name="email" placeholder="E-mail" value="{{$user->email}}" readonly>
                                     @if ($errors->get('email'))
                                         @foreach ($errors->get('email') as $error)
                                                 <div>
@@ -70,7 +70,7 @@
                                         <select id="inputState" name="selectrole" class="form-control">
                                             <option selected="selected" value="1">Selectionné un Role</option>
                                                 @foreach ($roles as $role)
-                                                   <option value="{{$role->id}}">{{$role->role}}</option>
+                                                   <option value="{{$role->id}}" {{$user->role_id == $role->id  ? 'selected' : ''}}>{{$role->role}}</option>
                                                 @endforeach
                                         </select>
                                     </div>
@@ -86,7 +86,8 @@
                                           @endif 
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-row">
+                                <div class="form-group col-md-6">
                                     <label>Address <span style="color:red;">*</span></label>
                                     <input type="text" class="form-control" name="adresse" placeholder="Adresse" value="{{$user->addresse}}">
                                     @if ($errors->get('adresse'))
@@ -97,6 +98,18 @@
                                             @endforeach
                                      @endif 
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label>Agence <span style="color:red">*</span></label>
+                                    <select id="inputState" name="agence" value="{{old('agence')}}" required class="form-control">
+                                        <option selected="selected">Sélectionné l'agence</option>
+                                                @foreach ($agences as $agence)
+                                                  <option  value={{$agence->id}} {{$user->agence_id == $agence->id  ? 'selected' : ''}}>{{$agence->agence_name}}</option>
+                                                @endforeach
+                                        </select>
+                                  
+                                </div>
+                                  
+                            </div>
                                 <div class="form-row" hidden>
                                     <div class="form-group col-md-6">
                                         <label>Mot de passe</label>

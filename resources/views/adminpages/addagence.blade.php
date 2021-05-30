@@ -42,10 +42,12 @@
                                         <div class="form-group col-md-6">
                                             <label>Ville</label>
                                             <select id="inputState" name="ville" value="{{old('ville')}}" class="form-control">
-                                                <option selected="selected" value="Casablanaca">Casablanca</option>
-                                                <option value="casablanca">Option 1</option>
-                                                <option value="Rabat">Option 2</option>
-                                                <option value="Tanger">Option 3</option>
+                                                <option selected="selected" value="-1">Sélectionné la ville</option>
+                                                @foreach ($villes as $ville)
+                                                    
+                                                     <option value="{{$ville->designation}}">{{$ville->designation}}</option>
+                                                @endforeach
+
                                             </select>
                                             @if ($errors->get('ville'))
                                                 @foreach ($errors->get('ville') as $error)

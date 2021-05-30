@@ -6,7 +6,7 @@
                               <form @submit.prevent="ajoutertype()">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Type</label>
+                                        <label>Ville</label>
                                         <input type="text" class="form-control" v-model="nom" placeholder="Nom">
                                      <div v-for="error in nomerror" :key="error.index">
                                         <span style="color:red;font-size:13px">{{error}} *</span>
@@ -62,7 +62,7 @@
 
                 if(!this.nom)
                 {
-                    this.nomerror.push("Type est obligatoire");
+                    this.nomerror.push("Ville est obligatoire");
                 } 
                 if(!this.selected)
                 {

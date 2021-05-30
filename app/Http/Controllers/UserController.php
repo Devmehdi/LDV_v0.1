@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Agence;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -21,7 +22,8 @@ class UserController extends Controller
     {
         $rl=new Role();
         $roles=getAll($rl);
-        return view("adminpages.adduser",array('roles'=>$roles));
+        $agences=Agence::all();
+        return view("adminpages.adduser",array('roles'=>$roles,'agences'=>$agences));
     }
     public function afficheusers()
     {
@@ -40,6 +42,7 @@ class UserController extends Controller
             $user->password=bcrypt($request->input('mdp'));
             $user->prenom=$request->input('prenom');
             $user->role_id=$request->input('selectrole');
+            $user->agence_id=$request->input('agence');
             if($request->hasFile('image'))
             {
                $photo=$request->file('image')->getClientOriginalName();
@@ -64,7 +67,8 @@ class UserController extends Controller
         $user = user::find($id);
         $rl=new Role();
         $roles=getAll($rl);
-        return view('adminpages.updateuser',array('user'=>$user,'roles'=>$roles));
+        $agences=Agence::all();
+        return view('adminpages.updateuser',array('user'=>$user,'roles'=>$roles,'agences'=>$agences));
     }
     // update post
     public function update($id, userupdateRequest $request)
@@ -77,6 +81,7 @@ class UserController extends Controller
         $user->addresse=$request->input('adresse');
         $user->telephone=$request->input('telephone');
         $user->role_id=$request->input('selectrole');
+        $user->agence_id=$request->input('agence');
         $user->save();
         return redirect('/admin/user/afficheusers');
     }
@@ -116,7 +121,6 @@ class UserController extends Controller
         $user->telephone=$request->input('telephone');
         $user->password=bcrypt($request->input('mdp'));
         $user->username=$request->input('login');
-        $user->role_id=$request->input('selectrole');
         if($request->hasFile('image'))
         {
            $photo=$request->file('image')->getClientOriginalName();
@@ -127,14 +131,5 @@ class UserController extends Controller
         $user->save();
         return redirect('/admin/profil');
     }
-    public function afficheCurrentUser()
-    {
-        $users=UserResource::collection(User::all());
-        return view("adminpages.profil",array('users'=>$users));
-    }
-    public function afficheCurrentUser()
-    {
-        $users=UserResource::collection(User::all());
-        return view("adminpages.profil",array('users'=>$users));
-    }
+
 }

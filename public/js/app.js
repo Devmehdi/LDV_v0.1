@@ -2269,7 +2269,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2307,6 +2306,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log(currentDate);
       var formatted_date = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
       console.log(formatted_date);
+    },
+    format: function format(date) {
+      var month = date.toLocaleString("en-US", {
+        month: 'short'
+      });
+      return date.getDate() + ' ' + month + ' ' + date.getFullYear();
     }
   }
 });
@@ -39795,7 +39800,14 @@ var render = function() {
     _c(
       "a",
       {
-        attrs: { href: "javascript:void(0)", "data-toggle": "dropdown-toggle" }
+        attrs: {
+          href: "#",
+          role: "button",
+          id: "dropdownMenuLink",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
       },
       [
         _c("i", { staticClass: "mdi mdi-bell-outline" }),
@@ -39815,8 +39827,9 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass:
-          "drop-down animated fadeIn dropdown-menu dropdown-notfication"
+        staticClass: "dropdown-menu",
+        staticStyle: { width: "250px" },
+        attrs: { "aria-labelledby": "dropdownMenuLink" }
       },
       [
         _c(
@@ -39852,11 +39865,13 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "notification-content" }, [
                       _c("h6", { staticClass: "notification-heading" }, [
-                        _vm._v("Nouveau demande")
+                        _vm._v("Nouveau demande de voiture...")
                       ]),
                       _vm._v(" "),
                       _c("span", { staticClass: "notification-text" }, [
-                        _vm._v("depuis " + _vm._s(notif.create_at))
+                        _vm._v(
+                          "depuis " + _vm._s(_vm._f("format")(notif.create_at))
+                        )
                       ])
                     ])
                   ]

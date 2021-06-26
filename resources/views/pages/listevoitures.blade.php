@@ -6,6 +6,11 @@
 <br/>
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
+          @if (session()->has('message'))
+          <div class="alert alert-success">
+                {!! session()->get('message') !!}
+          </div>
+          @endif
         <div class="row">
                 <div class="col-md-12">
                     <div class="search-wrap-1 ftco-animate ">

@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" style="background-color: black !important" id="ftco-navbar">
         <div class="container">
-          <a class="navbar-brand" href="{{url('index')}}">voiture <span> d'or</span></a>
+          <a class="navbar-brand" href="{{url('/')}}">voiture <span> d'or</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
           </button>
@@ -47,7 +47,7 @@
                <li><a href="#" class="dropdown-item">Marrakche - agence el harti</a></li>
               </ul>
             </li>
-              <li class="nav-item"><a href="{{url('liste')}}" class="nav-link">Nos Voiture</a></li>
+              <li class="nav-item"><a href="{{url('liste')}}" class="nav-link">Nos Voitures</a></li>
               <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
               @if (Auth::user())
                  @if (Auth::user()->role_id==1)
@@ -63,6 +63,9 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="{{ route('logout') }}">
+                   Mon Profile
+                   </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -76,7 +79,7 @@
             </li>
               @else
               <li class="nav-item "><a href="{{url('register')}}" class="nav-link btn-insc btn-zk">Inscription</a></li>
-              <li class="nav-item "><a href="{{url('login')}}" class="nav-link btn-conect btn-zk">Se Conecter</a></li>
+              <li class="nav-item "><a href="{{url('login')}}" class="nav-link btn-conect btn-zk">Se connectez</a></li>
               @endif
             
             </ul>

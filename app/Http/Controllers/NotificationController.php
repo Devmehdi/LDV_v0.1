@@ -13,6 +13,7 @@ class NotificationController extends Controller
     public function getnotification(){
        $id=Auth::id();
        $user=User::find($id)->agence_id;
+     //  return  dd($user);
        $notif=NotificationResource::collection(Notification::where('agence_id' , '=' , $user)->get());
        return response()->json($notif);
     }

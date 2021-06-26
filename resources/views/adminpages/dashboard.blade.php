@@ -10,7 +10,7 @@
     <div class="col p-md-0">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">index</a></li>
         </ol>
     </div>
 </div>
@@ -21,10 +21,10 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Voiture Louer</h3>
+                                <h3 class="card-title text-white">Voiture louer</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$count}}</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                             </div>
@@ -33,10 +33,10 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-2">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Total de Mois</h3>
+                                <h3 class="card-title text-white">Total du mois</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$totalPrice}} MAD</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                             </div>
@@ -45,10 +45,10 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-3">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Voiture Plus louer</h3>
+                                <h3 class="card-title text-white">Voiture plus demander</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$voiturename->voiture_nom}}</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
@@ -60,7 +60,7 @@
                                 <h3 class="card-title text-white">Agence</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$agencename->agence_name}}</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                             </div>
@@ -73,10 +73,10 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Voiture Louer</h3>
+                                <h3 class="card-title text-white">Voiture louer</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$count}}</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                             </div>
@@ -85,10 +85,10 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="card gradient-2">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Total de Mois</h3>
+                                <h3 class="card-title text-white">Total du mois</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$totalPrice}} MAD</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                             </div>
@@ -97,10 +97,10 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="card gradient-3">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Voiture Plus louer</h3>
+                                <h3 class="card-title text-white">Voiture plus demander</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">{{$voiturename->voiture_nom}}</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <p class="text-white mb-0">Jan - Dec 2021</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
@@ -119,12 +119,12 @@
                                     <div class="card-body pb-0 d-flex justify-content-between">
                                         <div>
                                             <h4 class="mb-1">Voitures louer</h4>
-                                            <p>Total Earnings of the Month</p>
+                                            <p>Total géneral du mois</p>
                                             <h3 class="m-0">{{$totalPriceallagence}} MAD</h3>
                                         </div>
                                         <div>
                                             <ul>
-                                                <li class="d-inline-block"><a class="text-dark" href="#">Month</a></li>
+                                                <li class="d-inline-block"><a class="text-dark" href="#">Mois</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -145,13 +145,13 @@
                                 <div class="card" style="height: 300px">
                                     <div class="card-body pb-0 d-flex justify-content-between">
                                         <div>
-                                            <h4 class="mb-1">Voitures Non confirmer</h4>
-                                            <p>Total of the Month</p>
+                                            <h4 class="mb-1">Voitures non confirmer</h4>
+                                            <p>Total géneral du mois</p>
                                             <h3 class="m-0">{{$totalPricenoconfirmer}} MAD</h3>
                                         </div>
                                         <div>
                                             <ul>
-                                                <li class="d-inline-block"><a class="text-dark" href="#">Month</a></li>
+                                                <li class="d-inline-block"><a class="text-dark" href="#">Mois</a></li>
                                             </ul>
                                         </div>
                                     </div>

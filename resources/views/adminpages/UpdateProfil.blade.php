@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Modifier Utilisateur</h4>
+                        <h4 class="card-title">Modifier profile</h4>
                         <div class="basic-form">
                             <form action="{{url('admin/user/profil/'.$user->id)}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PUT">
@@ -121,7 +121,7 @@
                                     <input type="file" name="image"  class="form-control" placeholder="">
                                 </div>
                                 <button type="submit" class="btn btn-dark">Submit</button>
-                                <a href="/admin/user/afficheusers" class="btn btn-secondary">Annuler</a>
+                                <a href="/admin/profil" class="btn btn-secondary">Annuler</a>
                             </form>
                         </div>
                      </div>

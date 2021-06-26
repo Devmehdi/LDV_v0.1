@@ -7,8 +7,8 @@
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Agence</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Nouvelle agence</a></li>
         </ol>
     </div>
 </div>
@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Telephone</label>
-                                            <input type="text" class="form-control" value="{{old('telephone')}}" name="telephone">
+                                            <input type="text" class="form-control" value="{{old('telephone')}}" pattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}"  required name="telephone" placeholder="Télephone">
                                                 @if ($errors->get('telephone'))
                                                     @foreach ($errors->get('telephone') as $error)
                                                     <div>
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" name="adresse" value="{{old('adresse')}}" placeholder="Addresse">
+                                        <input type="text" class="form-control" name="adresse" value="{{old('adresse')}}" required placeholder="Addresse">
                                         @if ($errors->get('adresse'))
                                                 @foreach ($errors->get('adresse') as $error)
                                                 <div>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea rows="10" class="form-control"  placeholder="description" value="{{old('description')}}" name="description"></textarea>
+                                        <textarea rows="10" class="form-control" placeholder="description" value="{{old('description')}}" name="description"></textarea>
                                         @if ($errors->get('description'))
                                                 @foreach ($errors->get('description') as $error)
                                                 <div>

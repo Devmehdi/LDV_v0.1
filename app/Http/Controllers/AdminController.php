@@ -36,6 +36,7 @@ class AdminController extends Controller
                         $voiturename=Voiture::find($voiture->voiture_id);
                         $voitureagence_id=Voiture::find($voiture->voiture_id);
                         $agencename=Agence::find($voitureagence_id->agence_id);
+                       // return dd($voitureagence_id->agence_id);
                         $totalPrice=Reservation::where('Confirmation' ,'=','1')->sum('prix');
                         $totalPriceallagence=Reservation::where('Confirmation' ,'=','1')->sum('prix');
                         $totalPricenoconfirmer=Reservation::where('Confirmation' ,'=','0')->sum('prix');

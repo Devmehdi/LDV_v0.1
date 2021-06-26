@@ -8,8 +8,8 @@
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Utilisateur</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Liste des utilisateurs</a></li>
         </ol>
     </div>
 </div>
@@ -32,10 +32,10 @@
                             <thead>
                                 <tr>
                                     <th>Nom Utilisateur</th>
-                                    <th>Prenom Utilisateur</th>
-                                    <th>addresse</th>
-                                    <th>email</th>
-                                    <th>créé le</th>
+                                    <th>Prénom Utilisateur</th>
+                                    <th>Addresse</th>
+                                    <th>E-mail</th>
+                                    <th>Créé le</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -48,13 +48,42 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->created_at}}</td>
                                     <td>
-                                        <a href="{{url('admin/user/'.$user->id.'/edit')}}"><i class="zmdi zmdi-edit"></i></a>&nbsp;
-                                        <a href="{{url('admin/user/'.$user->id.'/details')}}" data-toggle="modal" data-target="#exampleModalCenter"><i class="zmdi zmdi-view-list-alt"></i></i></a>&nbsp;
-                                        <a href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="zmdi zmdi-delete"></i></a>
+                                        <a href="{{url('admin/user/'.$user->id.'/edit')}}"><i class="zmdi zmdi-edit" title="Modifié" style="color:orange"></i></a>&nbsp;
+                                        <a href="{{url('admin/user/'.$user->id.'/details')}}" data-toggle="modal" data-target="#ModalDetails{{ $user->id }}"><i title="Détails" class="zmdi zmdi-view-list-alt" style="color:orange"></i></i></a>&nbsp;
+                                        <div class="modal fade" id="ModalDetails{{ $user->id }}" data-item-id="{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Détails</h5>
+                                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Nom : {{$user->Nom}}
+                                                    <br>
+                                                    <br>
+                                                    Prénom        : {{$user->prenom}}
+                                                    <br>
+                                                    <br>
+                                                    Adresse      : {{$user->addresse}}
+                                                    <br>
+                                                    <br>
+                                                    E-mail    : {{$user->email}}
+                                                    <br>
+                                                    <br>
+                                                    Crée le      : {{$user->created_at}}
+                                                    <br>
+                                                    <br>
+                                                    Dérnier modification  :{{$user->updated_at}}
+                                                </div>
+                                                
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" data-toggle="modal" data-target="#modalDelete{{$user->id}}"><i class="zmdi zmdi-delete" title="Supprimé" style="color:orange"></i></a>
                                         <form action="{{url('user/'.$user->id.'/deleted')}}" method="POST">
                                             {{ csrf_field() }}
                                             {{method_field('DELETE')}}
-                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal fade bd-example-modal-sm" id="modalDelete{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-sm">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -76,14 +105,12 @@
                               @endforeach
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
+                                <th>Nom Utilisateur</th>
+                                <th>Prénom Utilisateur</th>
+                                <th>Addresse</th>
+                                <th>E-mail</th>
+                                <th>Créé le</th>
+                                <th>Action</th>
                             </tfoot>
                         </table>
                     </div>

@@ -119,9 +119,14 @@ Route::post('/Reservation/voiture','App\Http\Controllers\ReservationController@r
 Route::get('/admin/Reserv/boitereservation','App\Http\Controllers\ReservationController@boitereservation')->middleware('auth');
 Route::get('/admin/Reserv/reservation/{id}','App\Http\Controllers\ReservationController@readreservation')->middleware('auth');
 Route::PUT('/confirmation/{id}','App\Http\Controllers\ReservationController@confirm')->middleware('auth');
-//Admin
-Route::get('/dashboard','App\Http\Controllers\AdminController@index')->middleware('auth');
 
+Route::get('/admin/Reserv/boitereservation/demandeconfirmer','App\Http\Controllers\ReservationController@ListeDemande')->middleware('auth');
+Route::delete('reservation/{id}/archive','App\Http\Controllers\ReservationController@Archive')->name('reservation.archive')->middleware('auth');
+//Admin
+
+Route::get('/dashboard','App\Http\Controllers\AdminController@index')->middleware('auth');
+Route::get('/admin/generer/{id}/Facturetion','App\Http\Controllers\ReservationController@Facturetion')->middleware('auth');
+Route::Post('admin/Reserv/boitereservation/demande/{id}/restaurer','App\Http\Controllers\ReservationController@UPdate')->middleware('auth');
 //Notification
 Route::delete('Notif/{id}','App\Http\Controllers\NotificationController@destroy')->middleware('auth');
 

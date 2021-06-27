@@ -10,8 +10,8 @@
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Agence</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Liste des agences</a></li>
         </ol>
     </div>
 </div>
@@ -49,13 +49,44 @@
                                     <td>{{$agence->agences_tel}}</td>
                                     <td>{{$agence->created_at}}</td>
                                     <td>
-                                            <a href="{{url('admin/agence/'.$agence->id.'/edit')}}"><i class="zmdi zmdi-edit"></i></a>&nbsp;
-                                            <a data-id="{{ $agence->id }}" id="show-customer" data-toggle="modal" data-target="#exampleModalCenter"><i class="zmdi zmdi-view-list-alt"></i></i></a>&nbsp;
-                                            <a href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="zmdi zmdi-delete"></i></a>
+                                            <a href="{{url('admin/agence/'.$agence->id.'/edit')}}"><i class="zmdi zmdi-edit" title="Modifié" style="color:orange"></i></a>&nbsp;
+                                            <a href='#' data-item-id="{{ $agence->id }}" data-toggle="modal" data-target="#DetailsModal{{ $agence->id }}"><i class="zmdi zmdi-view-list-alt" title="Détails" style="color:orange"></i></i></a>&nbsp;
+                                           <!-- Button trigger modal -->
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="DetailsModal{{ $agence->id }}" data-item-id="{{ $agence->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Détails</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Nom d'agence : {{$agence->agence_name}}
+                                                        <br>
+                                                        <br>
+                                                        Ville        : {{$agence->ville}}
+                                                        <br>
+                                                        <br>
+                                                        Adresse      : {{$agence->addresse}}
+                                                        <br>
+                                                        <br>
+                                                        Telephone    : {{$agence->agences_tel}}
+                                                        <br>
+                                                        <br>
+                                                        Crée le      : {{$agence->created_at}}
+                                                        <br>
+                                                        <br>
+                                                        Dérnier modification  :{{$agence->updated_at}}
+                                                    </div>
+                                                    
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <a href="#" data-toggle="modal" data-target="#modaldelete{{$agence->id}}"><i class="zmdi zmdi-delete" title="Supprimé" style="color:orange"></i></a>
                                             <form id="myForm" action="{{url('agence/'.$agence->id.'/deleted')}}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{method_field('DELETE')}}
-                                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal fade bd-example-modal-sm"  id="modaldelete{{$agence->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog modal-sm">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -78,12 +109,12 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Agence</th>
+                                    <th>Ville</th>
+                                    <th>Adresse</th>
+                                    <th>Telephone</th>
+                                    <th>Crée le</th>
+                                    <th>Actions</th>
                                 </tr>
                             </tfoot>
                         </table>

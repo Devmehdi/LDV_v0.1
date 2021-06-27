@@ -6,10 +6,10 @@
   position: relative;
 }
 
-.dropdown-toggle {
+//.dropdown-toggle {
   // Generate the caret automatically
-  @include caret;
-}
+ // @include caret;
+//}
 
 // The dropdown menu
 .dropdown-menu {
@@ -62,13 +62,13 @@
     margin-left: $dropdown-spacer;
   }
 
-  .dropdown-toggle {
+ /* .dropdown-toggle {
     @include caret(right);
     &::after {
       vertical-align: 0;
     }
   }
-}
+}*/
 
 .dropleft {
   .dropdown-menu {

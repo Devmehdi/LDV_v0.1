@@ -152,10 +152,16 @@
                         </ul>
                     </li>
                     
+                   
                     <li>
-                        <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
+                        <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i><span class="nav-text">Boite Réservation</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{url('/admin/Reserv/boitereservation')}}">Liste des réservations</a></li>
+                            <li><a href="{{url('/admin/Reserv/boitereservation/demandeconfirmer')}}">Les demandes confirmé</a></li>
+                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                        </ul>
                     </li>
                     <li style="position: absolute;bottom: 0;width: 100%">
                         <a class="has-arrow" href="{{url('index')}}" aria-expanded="false">

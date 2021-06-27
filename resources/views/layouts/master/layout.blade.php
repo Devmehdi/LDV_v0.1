@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Voiture d'or</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
     <!-- Custom Stylesheet -->
@@ -42,11 +42,11 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html">
+                <a href="{{url('dashboard')}}">
                     <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="images/logo-text.png" alt="">
+                        <a class="navbar-brand" href="{{url('index')}}"> <span> </span></a>
                     </span>
                 </a>
             </div>
@@ -67,17 +67,7 @@
                     </div>
                 </div>
                 <div class="header-left">
-                    <div class="input-group icons">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
-                        </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
-                        <div class="drop-down   d-md-none">
-							<form action="#">
-								<input type="text" class="form-control" placeholder="Search">
-							</form>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="header-right" id="notif">
                     <ul class="clearfix">
@@ -85,32 +75,34 @@
                         <notification-component></notification-component>
 
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative" data-toggle="dropdown-toggle">
-                                <span class="activity active"></span>
+                            <a href="#" class="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{url('images/user/1.png')}}" height="40" width="40" alt="">
-                            </div>
-                            <div class="drop-down dropdown-profile dropdown-menu">
+                                <div>
+                                        <span class="badge badge-pill gradient-2 badge-primary"></span>
+                                </div>
+                            </a>
+                            <div class=" dropdown-menu " aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
                                             <a href="{{url('/admin/profil')}}"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
-                                        <hr class="my-2">
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                       <li>
+                                            <a class="" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                               <i class="icon-logout"></i> <span>Logout</span>
+                                            </a>
+                            
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                       </li>
                                     </ul>
                                 </div>
                             </div>
-                        </li>
+                            
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -166,12 +158,17 @@
                     </li>
                     
                     <li>
-                        <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
+                        <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i><span class="nav-text">Boite Réservation</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{url('/admin/Reserv/boitereservation')}}">Liste des réservations</a></li>
+                            <li><a href="{{url('/admin/Reserv/boitereservation/demandeconfirmer')}}">Les demandes confirmé</a></li>
+                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                        </ul>
                     </li>
                     <li style="position: absolute;bottom: 0;width: 100%">
-                        <a class="has-arrow" href="{{url('index')}}" aria-expanded="false">
+                        <a class="has-arrow" href="{{url('/')}}" aria-expanded="false">
                             <i class="icon-eye menu-icon"></i><span class="nav-text"> Voir site web</span>
                         </a>
                     </li>     
@@ -204,9 +201,14 @@
                   
                     
                     <li>
-                        <a class="has-arrow" href="{{url('/admin/Reserv/boitereservation')}}" aria-expanded="false">
+                        <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i><span class="nav-text">Boite Réservation</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{url('/admin/Reserv/boitereservation')}}">Liste des réservations</a></li>
+                            <li><a href="{{url('/admin/Reserv/boitereservation/demandeconfirmer')}}">Les demandes confirmé</a></li>
+                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                        </ul>
                     </li>
                     <li style="position: absolute;bottom: 0;width: 100%">
                         <a class="has-arrow" href="{{url('index')}}" aria-expanded="false">
@@ -265,6 +267,7 @@
   <script src="{{asset('plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js')}}"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="{{asset('js/script.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script src="{{asset('js/app.js')}}"></script>
   <script src="{{asset('./plugins/sweetalert/js/sweetalert.min.js')}}"></script>
   <script src="{{asset('./plugins/sweetalert/js/sweetalert.init.js')}}"></script>

@@ -8,8 +8,8 @@
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Utilisateur</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Nouvelle Utilisateur</a></li>
         </ol>
     </div>
 </div>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Telephone <span style="color:red;">*</span></label>
-                                        <input type="text" class="form-control"  value="{{old('selectrole')}}" name="telephone" required>
+                                        <input type="text" class="form-control"  value="{{old('selectrole')}}" name="telephone" pattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}" placeholder="Télephone" required>
                                                 @if ($errors->get('telephone'))
                                                 @foreach ($errors->get('telephone') as $error)
                                                 <div>

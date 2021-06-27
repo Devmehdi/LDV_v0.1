@@ -5,13 +5,10 @@
     <div class="container">
       <div class="row block-9 justify-content-center mb-5">
         <div class="col-md-8 mb-md-5">
-            <h2 class="text-center">Reserver votre voiture avec une seule clique<br></h2>
+            <h2 class="text-center">Réservé votre voiture avec une seule clique<br></h2>
           <form action="{{url('/Reservation/voiture')}}" method="POST" class="bg-light p-5 contact-form">
               @csrf
-              <div class="alert alert-success">
-                  
-                {{Session::get('message')}}
-              </div>
+              
               @if (Auth::user())
            
               <div class="form-group">

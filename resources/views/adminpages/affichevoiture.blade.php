@@ -11,8 +11,8 @@
 <div class="row page-titles mx-0">
     <div class="col p-md-0">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Voiture</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Liste des voitures</a></li>
         </ol>
     </div>
 </div>
@@ -57,13 +57,42 @@
                                 <td>{{$voiture->model}}</td>
                                 <td>{{$voiture->created_at}}</td>
                                 <td>
-                                    <a href="{{url('admin/voiture/'.$voiture->id.'/edit')}}"><i class="zmdi zmdi-edit"></i></a>&nbsp;
-                                    <a href="{{url('admin/voiture/'.$voiture->id.'/details')}}" data-toggle="modal" data-target="#exampleModalCenter"><i class="zmdi zmdi-view-list-alt"></i></i></a>&nbsp;
-                                    <a href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="zmdi zmdi-delete"></i></a>
+                                    <a href="{{url('admin/voiture/'.$voiture->id.'/edit')}}"><i class="zmdi zmdi-edit" title="Modifié" style="color:orange"></i></a>&nbsp;
+                                    <a href="{{url('admin/voiture/'.$voiture->id.'/details')}}" data-toggle="modal" data-target="#detailsModal{{$voiture->id}}"><i class="zmdi zmdi-view-list-alt" title="Détails" style="color:orange"></i></i></a>&nbsp;
+                                    <div class="modal fade" id="detailsModal{{ $voiture->id }}" data-item-id="{{ $voiture->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Détails</h5>
+                                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                            </div>
+                                            <div class="modal-body">
+                                                Voiture : {{$voiture->voiture_nom}}
+                                                <br>
+                                                <br>
+                                                Matricule        : {{$voiture->matricule}}
+                                                <br>
+                                                <br>
+                                                Prix      : {{$voiture->prix}}
+                                                <br>
+                                                <br>
+                                                Model    : {{$voiture->model}}
+                                                <br>
+                                                <br>
+                                                Crée le      : {{$voiture->created_at}}
+                                                <br>
+                                                <br>
+                                                Dérnier modification  : {{$voiture->updated_at}}
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" data-toggle="modal" data-target="#deleteModal{{$voiture->id}}"><i class="zmdi zmdi-delete" title="Supprimé" style="color:orange"></i></a>
                                         <form action="{{url('voiture/'.$voiture->id.'/deleted')}}" method="POST">
                                             {{ csrf_field() }}
                                             {{method_field('DELETE')}}
-                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal fade bd-example-modal-sm" id="deleteModal{{$voiture->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-sm">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -85,7 +114,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Voiture</th>
+                                <th>Voitures</th>
                                 <th>Matricule</th>
                                 <th>Prix</th>
                                 <th>Model</th>
@@ -126,7 +155,7 @@
                                     <td>{{$coleur->created_at}}</td>
                                     <td>{{$coleur->update_at}}</td>
                                     <td>
-                                        <a href="{{url('admin/coleur/'.$coleur->id.'/edit')}}"><i style="margin-left:15px" class="zmdi zmdi-edit"></i></a>&nbsp;
+                                        <a href="{{url('admin/coleur/'.$coleur->id.'/edit')}}"><i style="margin-left:15px ;color:orange" class="zmdi zmdi-edit" title="Modifié" ></i></a>&nbsp;
                                         
                                         
                                 </td>
@@ -175,7 +204,7 @@
                                 <td>{{$ville->created_at}}</td>
                                 <td>{{$ville->update_at}}</td>
                                 <td>
-                                    <a href="{{url('admin/voituretype/'.$ville->id.'/edit')}}"><i style="margin-left:15px" class="zmdi zmdi-edit"></i></a>&nbsp;
+                                    <a href="{{url('admin/voituretype/'.$ville->id.'/edit')}}"><i style="margin-left:15px ;color:orange" class="zmdi zmdi-edit" title="Modifié"></i></a>&nbsp;
                             </td>
                             </tr>
                           @endforeach
@@ -224,7 +253,7 @@
                             <td>{{$marque->created_at}}</td>
                             <td>{{$marque->update_at}}</td>
                             <td>
-                                <a href="{{url('admin/voituremarque/'.$marque->id.'/edit')}}"><i style="margin-left:15px" class="zmdi zmdi-edit"></i></a>&nbsp;
+                                <a href="{{url('admin/voituremarque/'.$marque->id.'/edit')}}"><i style="margin-left:15px ;color:orange" class="zmdi zmdi-edit" title="Modifié"></i></a>&nbsp;
                             </td>
                         </tr>
                       @endforeach

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 Use Illuminate\Support\Facades\Auth;
 use App\Models\Voiture;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -85,7 +86,9 @@ Route::Delete('/agence/{id}/deleted','App\Http\Controllers\AgenceController@dest
 
 //User
 // partie user
-Route::get('/contact','App\Http\Controllers\UserController@contact');
+
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
 Route::get('/about',function () {
     return view('pages.apropos');
 });

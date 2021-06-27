@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 Use Illuminate\Support\Facades\Auth;
+use App\Models\Voiture;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,8 @@ Use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $voitures=Voiture::latest()->take(4)->get();
+    return view('welcome',array('voitures'=>$voitures));
 });
 
 Auth::routes();
@@ -83,6 +86,9 @@ Route::Delete('/agence/{id}/deleted','App\Http\Controllers\AgenceController@dest
 //User
 // partie user
 Route::get('/contact','App\Http\Controllers\UserController@contact');
+Route::get('/about',function () {
+    return view('pages.apropos');
+});
 // partie admin
 Route::get('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouteruser');
 Route::get('/admin/user/afficheusers','App\Http\Controllers\UserController@afficheusers');

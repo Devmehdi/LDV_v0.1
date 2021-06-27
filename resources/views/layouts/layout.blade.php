@@ -37,7 +37,7 @@
           <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="{{url('index')}}" class="nav-link">Accueil</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">A Propos</a></li>
+              <li class="nav-item"><a href="/about" class="nav-link">A Propos</a></li>
               <li class="nav-item dropdown"><a class="nav-link">Nos Agences</a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><a href="#" class="dropdown-item">Casablanca - agence yasmina</a></li>

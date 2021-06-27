@@ -82,7 +82,7 @@ class ReservationController extends Controller
         {
             $voiture=Voiture::find($reservation->voiture_id);
             $agence= Agence::find($voiture->agence_id);
-            $user=User::find($reservation->user_id);
+            //$user=User::find($reservation->user_id);
             $fullname=$reservation->fullname;
             $data = array('name'=>$fullname,'voiture'=>$voiture->voiture_nom,'agence'=>$agence->agence_name,'date'=>$reservation->date_reservation);
         
@@ -93,7 +93,7 @@ class ReservationController extends Controller
             Mail::send(['text'=>'mail','reservation' => $reservation], $data, function($message) use ($reservation){
                 $message->to($reservation->email , $reservation->fullname)->subject
                     ('Demande de voiture');
-                $message->from('laravelsmtp34@gmail.com','Support Voiture d\'or');
+                $message->from('laravelsmtp34@gmail.com','Support Ma voiture');
             });
         }
     }

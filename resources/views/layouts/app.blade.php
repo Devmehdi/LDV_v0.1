@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ma voiture | Accueil</title>
     <link href="{{asset('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap')}}" rel="stylesheet">
 
     <link rel="{{asset('stylesheet" href="css/open-iconic-bootstrap.min.css')}}">
@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" style="background-color: black !important" id="ftco-navbar">
         <div class="container">
-          <a class="navbar-brand" href="{{url('/')}}">voiture <span> d'or</span></a>
+          <a class="navbar-brand" href="{{url('/')}}">Ma<span>Voiture </span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
           </button>
@@ -38,14 +38,7 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="{{url('index')}}" class="nav-link">Accueil</a></li>
               <li class="nav-item"><a href="about.html" class="nav-link">A Propos</a></li>
-              <li class="nav-item dropdown"><a class="nav-link">Nos Agences</a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a href="#" class="dropdown-item">Casablanca - agence yasmina</a></li>
-               <li><a href="#" class="dropdown-item ">Rabat - agence chela</a></li>
-               <li><a href="#" class="dropdown-item ">Fes - agence dhar mahraz</a></li>
-               <li><a href="#" class="dropdown-item ">Tanger - agence ibno batota</a></li>
-               <li><a href="#" class="dropdown-item">Marrakche - agence el harti</a></li>
-              </ul>
+              <li class="nav-item"><a class="nav-link" href="{{url('agence/liste')}}">Nos Agences</a>
             </li>
               <li class="nav-item"><a href="{{url('liste')}}" class="nav-link">Nos Voitures</a></li>
               <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>

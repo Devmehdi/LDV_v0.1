@@ -57,7 +57,8 @@ Route::get('dashboard','App\Http\Controllers\AgenceController@dashboard');
 //Agence
 
 // partie user
-Route::get('admin/agence/liste','App\Http\Controllers\AgenceController@liste');
+Route::get('/agence/liste','App\Http\Controllers\AgenceController@liste');
+Route::get('/agence/detail/{id}','App\Http\Controllers\AgenceController@getagence');
 // partie admin
 Route::get('admin/agence/ajouteragence','App\Http\Controllers\AgenceController@ajouteragence')->middleware('auth');
 

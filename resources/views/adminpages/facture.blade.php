@@ -133,10 +133,10 @@
 						<table>
 							<tr>
 								<td>
-									<h1>Voiture D'or</h1>
+									<img src="{{asset('images/logo.png')}}" style="position: absolute;top: 70px;">
 								</td>
 
-								<td>
+								<td style="position: absolute;right: 150px;top: 150px; text-align: inherit;">
 									Facture N° : #9837{{$reservation->id}}<br />
 									Crée le : {{$reservation->created_at->format('d-m-y')}} <br />
 								</td>
@@ -149,13 +149,13 @@
 					<td colspan="3">
 						<table>
 							<tr>
-								<td>
+								<td >
 									Agence : {{$getagence->agence_name}}<br />
 									Address :  {{$getagence->addresse}}<br />
 									Télephone :  {{$getagence->agences_tel}}
 								</td>
 
-								<td>
+								<td style="position: absolute;right: 140px;text-align: inherit;">
 									Nom & Prénom : {{$reservation->fullname}}<br />
 									Télephone :{{$reservation->telephone}}<br />
 								</td>

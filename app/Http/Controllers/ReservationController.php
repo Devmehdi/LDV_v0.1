@@ -122,13 +122,14 @@ class ReservationController extends Controller
         $agences=new Agence();
         if(Auth::user())
         {
+            //$agences=Agence::All();
             $reservation=new Reservation();
             $notif=new Notification();
             $to = \Carbon\Carbon::createFromFormat('Y-m-d',  $request->input('datedebut'));
             $from = \Carbon\Carbon::createFromFormat('Y-m-d', $request->input('datefin'));
             $diff_in_days = $to->diffInDays($from);
             $price=$request->input('prix');
-            return dd($diff_in_days);
+            //return dd($diff_in_days);
             $reservation->fullname=$request->input('nom');
             $reservation->prix= ($price * $diff_in_days);
             $reservation->confirmation=0;
@@ -150,7 +151,8 @@ class ReservationController extends Controller
             $notif->isOpen=0;
             $notif->activeflage=0;
             $notif->save();
-            return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences))->with('message','votre demande a été enregistrer');
+            return redirect('liste')->with('message','Votre demande a été enregistrer');
+            //return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences))->with('message','Votre demande a été enregistrer');
         }
         else{
             $reservation=new Reservation();
@@ -182,7 +184,7 @@ class ReservationController extends Controller
             $notif->isOpen=0;
             $notif->activeflage=0;
             $notif->save();
-            return redirect('liste')->with('message','votre demande a été enregistrer');
+            return redirect('liste')->with('message','Votre demande a été enregistrer');
             //return view('pages.reservation',array('voiture'=>$voiture,'agences'=>$agences))->with('message','votre demande a été enregistrer');
         }
        

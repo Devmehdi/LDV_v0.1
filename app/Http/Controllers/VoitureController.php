@@ -17,6 +17,11 @@ class VoitureController extends Controller
 {
     public function index()
     {
+        $voitures=Voiture::all()->take(4);
+        if($voitures!=null)
+        {
+            return view("welcome",array('voitures'=>$voitures));
+        }
         return view("welcome");
     }
     public function details($id)

@@ -16,29 +16,27 @@ class ContactController extends Controller
 
     public function storeContactForm(Request $request)
     {
-        dd('tedddg');
-        $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'objet' => 'required',
-            'message' => 'required',
-        ]);
+    //  $this->validate([
+    //         'name' => 'required',
+    //         'email' => 'required|email',
+    //         'objet' => 'required',
+    //         'content' => 'required',
+    //    ]);
 
         $input = $request->all();
-
-        Contact::create($input);
+       // return $request->email;
+       // Contact::create($request->email);
 
         //  Send mail to admin
         \Mail::send('contactMail', array(
             'name' => $input['name'],
             'email' => $input['email'],
             'objet' => $input['objet'],
-            'message' => $input['message'],
+            'content' => $input['content'],
         ), function($message) use ($request){
             $message->from($request->email);
-            $message->to('fatima.elfaik@gmail.com', 'Admin')->subject($request->get('objet'));
+            $message->to('Ajouter Votre mail ici', 'Admin')->subject($request->get('objet'));
         });
-
         return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);
     }
 }

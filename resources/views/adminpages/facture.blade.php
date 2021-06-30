@@ -136,7 +136,7 @@
 									<img src="{{asset('images/logo.png')}}" style="position: absolute;top: 70px;">
 								</td>
 
-								<td style="position: absolute;right: 150px;top: 150px; text-align: inherit;">
+								<td>
 									Facture N° : #9837{{$reservation->id}}<br />
 									Crée le : {{$reservation->created_at->format('d-m-y')}} <br />
 								</td>
@@ -155,7 +155,7 @@
 									Télephone :  {{$getagence->agences_tel}}
 								</td>
 
-								<td style="position: absolute;right: 140px;text-align: inherit;">
+								<td>
 									Nom & Prénom : {{$reservation->fullname}}<br />
 									Télephone :{{$reservation->telephone}}<br />
 								</td>

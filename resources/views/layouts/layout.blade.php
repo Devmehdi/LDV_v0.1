@@ -63,7 +63,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="{{ route('logout') }}">
+                   <a class="dropdown-item" href="{{ route('profil') }}">
                    Mon Profile
                    </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"

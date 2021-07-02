@@ -19,6 +19,23 @@ class VoitureController extends Controller
     {
         return view("welcome");
     }
+    public function filter(Request $request)
+    {
+        $q = Voiture::query();
+        $agence = $request->agence;
+
+        $q->when($agence,function ($query){
+        $query->where('agence_id',$agence);
+        });
+
+        // $q->when($username,function ($query){
+        // $query->where('username',$username);
+        // });
+
+        $voitures = $q->get();
+
+        // return view('pages.listevoitures',array('voitures' => $voitures));
+    }
     public function details($id)
     {
         $voiture = Voiture::find($id);
@@ -46,12 +63,20 @@ class VoitureController extends Controller
     }
     public function liste()
     {
+        $marqs=new Marque();
+        $cols=new Coleur();
+        $carb=new Carburant();
+        $ags=new Agence();
+        $coleurs=getAll($cols);
+        $marques=getAll($marqs);
+        $carburants=getAll($carb);
+        $agences=getAll($ags);
         $voitures=Voiture::all();
         if($voitures!=null)
         {
-            return view("pages.listevoitures",array('voitures'=>$voitures));
+            return view("pages.listevoitures",array('voitures'=>$voitures, 'coleurs'=>$coleurs,'marques'=>$marques,'carburants'=>$carburants,'agences'=>$agences));
         }
-        return view("pages.listevoitures");
+        return view("pages.listevoitures",array('coleurs'=>$coleurs,'marques'=>$marques,'carburants'=>$carburants,'agences'=>$agences));
         
     }
     public function ajoutervoiture()

@@ -29,7 +29,11 @@ Auth::routes();
 // partie user
 Route::get('/details/{id}','App\Http\Controllers\VoitureController@details');
 Route::get('/liste','App\Http\Controllers\VoitureController@liste');
+// Route::get('/liste','App\Http\Controllers\VoitureController@filter')->name('filter');;
 Route::get('/index','App\Http\Controllers\VoitureController@index');
+Route::get('/mesInfos','App\Http\Controllers\userController@InfoPersonel')->name('mes-infos')->middleware('auth');
+Route::get('/mesReservations','App\Http\Controllers\userController@listeReservations')->name('mes-reservations')->middleware('auth');
+
 // partie admin
 Route::get('/admin/voiture/ajoutervoiture','App\Http\Controllers\VoitureController@ajoutervoiture')->middleware('auth');
 Route::get('/admin/voiture/affichevoiture','App\Http\Controllers\VoitureController@affichevoiture')->middleware('auth');
@@ -92,6 +96,7 @@ Route::post('/contact', [App\Http\Controllers\ContactController::class, 'storeCo
 Route::get('/about',function () {
     return view('pages.apropos');
 });
+Route::get('/profil',function () {  return view('pages.profil');})->name('profil')->middleware('auth');
 // partie admin
 Route::get('/admin/user/ajouteruser','App\Http\Controllers\UserController@ajouteruser');
 Route::get('/admin/user/afficheusers','App\Http\Controllers\UserController@afficheusers');

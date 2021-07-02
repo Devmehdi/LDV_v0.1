@@ -323,7 +323,7 @@
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="agence-single.html" class="block-20" style="background-image: url('images/casa.jpg');">
+              <a href="agence-single.html" class="block-20" style="background-image: url('images/agences/casa.jpg');">
               </a>
               <div class="text pt-4">
                 <h3 class="heading mt-2"><a href="agence-single.html">Casablanca - Agence yasmina</a></h3>
@@ -333,7 +333,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="agence-single.html" class="block-20" style="background-image: url('images/rabat.jpg');">
+              <a href="agence-single.html" class="block-20" style="background-image: url('images/agences/rabat.jpg');">
               </a>
               <div class="text pt-4">
             
@@ -344,7 +344,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry">
-              <a href="agence-single.html" class="block-20" style="background-image: url('images/marrakech.jpg');">
+              <a href="agence-single.html" class="block-20" style="background-image: url('images/agences/marrakech.jpg');">
               </a>
               <div class="text pt-4">
              

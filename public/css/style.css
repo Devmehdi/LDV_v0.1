@@ -8800,7 +8800,7 @@ h1, h2, h3, h4, h5,
         border-color: #343a40 transparent transparent transparent; }
   .table tbody tr td {
     vertical-align: middle;
-    padding: 30px 0;
+    padding: 30px 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
     .table tbody tr td.car-image .img {
       display: block;
@@ -11186,4 +11186,16 @@ legend {
 position: absolute;
 bottom: 30px;
 width: 92%;
+}
+a.bloc {
+  padding: 30px;
+  margin-top: 30px;
+  /* border: 2px solid; */
+  box-shadow: 1px 1px 5px 1px #ababab;
+  color: black;
+  font-weight: bold;
+}
+a.bloc:hover {
+  box-shadow: 1px 1px 4px 1px #f7b71d;
+  color: orange;
 }

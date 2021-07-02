@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\userupdateRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\userprofilRequest;
+use App\Models\Reservation;
 
 class UserController extends Controller
 {
@@ -100,6 +101,40 @@ class UserController extends Controller
         else
         {
            return response()->json('Ops NotFound');
+        }
+    }
+    public function InfoPersonel()
+    {
+        $id = Auth::id();
+        if($id != 0)
+        {
+            $user = User::find($id);
+            if($user != null)
+            {
+                $fullname = $user->Nom. " " .$user->prenom;                
+                return view("pages.infoperso",array('user'=>$user,'fullname'=>$fullname));
+            }
+        }
+        else
+        {
+           return response()->json('Ops NotFound');
+        }
+    }
+    public function listeReservations()
+    {
+        $id = Auth::id();
+        if($id != 0){
+            $reservations = Reservation::join('users', 'users.id', '=', 'reservations.user_id')
+            ->join('voitures', 'voitures.id', '=', 'reservations.voiture_id')
+            ->where('reservations.user_id', '=' , $id )
+            ->get();
+            // $reservations = User::find($id)->reservations;
+            return view("pages.mesReservations",array('reservations'=>$reservations));
+
+        } else {
+
+           return response()->json('Ops NotFound');
+
         }
     }
     public function editprofil($id)

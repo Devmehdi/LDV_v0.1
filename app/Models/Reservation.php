@@ -12,4 +12,12 @@ class Reservation extends Model
     use SoftDeletes;
 
     protected $dates=['deleted_at'];
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+    public function Voiture()
+    {
+        return $this->hasOne(Voiture::class);
+    }
 }

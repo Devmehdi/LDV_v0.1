@@ -40,7 +40,7 @@
             @endif --}}
 
 
-          <form action="{{ route('contact-form.store') }}" class="bg-light p-5 contact-form">
+          <form action="{{ route('contact-form.store') }}" method="POST" class="bg-light p-5 contact-form">
             {{ csrf_field() }}
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Your Name" value="{{ old('name') }}" name="name" required>
@@ -61,14 +61,14 @@
               @endif
             </div>
             <div class="form-group">
-              <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message">{{ old('message') }}</textarea>
+              <textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="Message">{{ old('content') }}</textarea>
 
-              @if ($errors->has('message'))
-                  <span class="text-danger">{{ $errors->first('message') }}</span>
+              @if ($errors->has('content'))
+                  <span class="text-danger">{{ $errors->first('content') }}</span>
               @endif
             </div>
             <div class="form-group">
-              <input type="submit" value="Send" class="btn btn-primary py-3 px-5">
+              <input type="submit" value="Envoyé" class="btn btn-primary py-3 px-5">
             </div>
           </form>
           

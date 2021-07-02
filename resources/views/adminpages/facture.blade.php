@@ -133,7 +133,7 @@
 						<table>
 							<tr>
 								<td>
-									<h1>Voiture D'or</h1>
+									<img src="{{asset('images/logo.png')}}" style="position: absolute;top: 70px;">
 								</td>
 
 								<td>
@@ -149,7 +149,7 @@
 					<td colspan="3">
 						<table>
 							<tr>
-								<td>
+								<td >
 									Agence : {{$getagence->agence_name}}<br />
 									Address :  {{$getagence->addresse}}<br />
 									Télephone :  {{$getagence->agences_tel}}

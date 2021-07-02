@@ -19,6 +19,11 @@ class AgenceController extends Controller
         $agences= AgenceResource::collection(Agence::all());
         return view("pages.agence",array('agences'=>$agences));
     }
+    public function getagence($id)
+    {
+        $agence = Agence::find($id);
+        return view("pages.detailagence",array('agence'=>$agence));
+    }
     public function ajouteragence()
     {
         $villes=Ville::where('statut','=','Active')->get();

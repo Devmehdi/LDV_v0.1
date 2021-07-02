@@ -11,8 +11,8 @@
                         <h3>Boite de résevation</h3>
                         <br>
                         <br>
-                        <div class="mail-list mt-4"><a href="email-inbox.html" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Aujourd'hui</b> @if ($count!=0) <span class="badge badge-primary badge-sm float-right m-t-5">{{$count}}</span> </a>@endif
-                            <i class="fa fa-archive font-18 align-middle mr-2"></i> <b>Archivé</b>
+                        <div class="mail-list mt-4"><a href="#" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Aujourd'hui</b> @if ($count!=0) <span class="badge badge-primary badge-sm float-right m-t-5">{{$count}}</span> </a>@endif
+                            <a href="/admin/Reserv/boitereservation/demandeconfirmer" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Les demandes archivé</b> </a>
                         </div>
                     </div>
                     <br>

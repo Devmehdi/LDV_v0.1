@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 Use Illuminate\Support\Facades\Auth;
 use App\Models\Voiture;
+use App\Models\Agence;
 use App\Http\Controllers\ContactController;
 
 
@@ -17,19 +18,17 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-// Route::get('/', function () {
-//     $voitures=Voiture::latest()->take(4)->get();
-//     return view('welcome',array('voitures'=>$voitures));
-// });
+Route::get('/', function () {
+    $voitures=Voiture::latest()->take(4)->get();
+    $agences=agence::all();
+    return view('welcome',array('voitures'=>$voitures,'agences'=>$agences));
+});
+
 
 Auth::routes();
 
 // Voiture
-
 Route::get('/search','App\Http\Controllers\SearchController@index')->name('search');
-Route::get('/','App\Http\Controllers\VoitureController@index');
-Route::get('/','App\Http\Controllers\AgenceController@indexAgences');
-
 // partie user
 Route::get('/details/{id}','App\Http\Controllers\VoitureController@details');
 Route::get('/liste','App\Http\Controllers\VoitureController@liste');

@@ -22,28 +22,24 @@
           </div>
           <div class="col-lg-2 col"></div>
           <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
-          	<form action="#" class="request-form ftco-animate">
+          <form action="{{ route('search') }}" class="request-form ftco-animate">
           		<h2>Location de Voiture en Maroc</h2>
 	    				<div class="form-group">
 	    					<label for="" class="label">Ville de départ :</label>
 	    					<select class="form-control" name="Ville_d" id="Ville_d">
                    <option value="">-- Choise Ville de départ --</option>
-                   <option value="ca">Casablanca - agence yasmina </option>
-                   <option value="ra">Rabat - agence chela</option>
-                   <option value="fe">Fes - agnece dhar mahraz</option>
-                   <option value="ta">Tanger - agence ibno batota</option>
-                   <option value="ma">Marrakech - agence el harti </option>
+                   
+                   @foreach ($agences as $agence)
+                   <option value="{{$agence->id}}">{{$agence->ville}} - {{$agence->agence_name}} </option> 
+                  @endforeach
                 </select>
 	    				</div>
 	    				<div class="form-group">
 	    					<label for="" class="label">Ville de fin</label>
-	    					<select class="form-control" name="Ville_d" id="Ville_d">
-                   <option value="">-- Choise ville de fin --</option>
-                   <option value="ca">Casablanca - agence yasmina </option>
-                   <option value="ra">Rabat - agence chela</option>
-                   <option value="fe">Fes - agnece dhar mahraz</option>
-                   <option value="ta">Tanger - agence ibno batota</option>
-                   <option value="ma">Marrakech - agence el harti </option>
+	    					<select class="form-control" name="Ville_f" id="Ville_f">
+                  @foreach ($agences as $agence)
+                  <option value="{{$agence->id}}">{{$agence->ville}} - {{$agence->agence_name}} </option> 
+                 @endforeach
                 </select>
 	    				</div>
 	    				
@@ -157,29 +153,7 @@
             <h2 class="mb-2">Choisissez votre voiture</h2>
           </div>
         </div>
-        <div class="row">
-          @foreach ($voitures as $voiture)
-          <div class="col-md-3 col-sm-6">
-            <div class="car-wrap ftco-animate">
-              <div class="img d-flex align-items-end" style="background-image: url({{url('images/voitures/'.$voiture->image)}});">
-                <div class="price-wrap d-flex">
-                  <span class="rate">{{$voiture->prix}}</span>
-                  <p class="from-day">
-                    <span style="margin-left: 14px;">par</span>
-                    <span>MAD/Jour</span>
-                  </p>
-                </div>
-              </div>
-              <div class="text p-4 text-center">
-                <h2 class="mb-0"><a href="#">{{$voiture->voiture_nom}}</a></h2>
-                <span>{{$voiture->model}}</span>
-                <p class="d-flex mb-0 d-block"><a href="{{url('/Reserver/Voiture/'.$voiture->id)}}" class="btn btn-black btn-outline-black mr-1">Réserver</a> <a href="{{url('details/'.$voiture->id)}}" class="btn btn-black btn-outline-black ml-1">Details</a></p>
-              </div>
-            </div>
-          </div>
-
-          @endforeach
-        </div>
+      
         <div class="row" >
           <div class="btn-plus">
           <a href="/liste"> voir plus </a>

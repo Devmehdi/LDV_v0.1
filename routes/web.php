@@ -17,14 +17,18 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-    $voitures=Voiture::latest()->take(4)->get();
-    return view('welcome',array('voitures'=>$voitures));
-});
+// Route::get('/', function () {
+//     $voitures=Voiture::latest()->take(4)->get();
+//     return view('welcome',array('voitures'=>$voitures));
+// });
 
 Auth::routes();
 
 // Voiture
+
+Route::get('/search','App\Http\Controllers\SearchController@index')->name('search');
+Route::get('/','App\Http\Controllers\VoitureController@index');
+Route::get('/','App\Http\Controllers\AgenceController@indexAgences');
 
 // partie user
 Route::get('/details/{id}','App\Http\Controllers\VoitureController@details');

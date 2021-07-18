@@ -14,6 +14,13 @@ use App\Http\Requests\AgenceRequest;
 
 class AgenceController extends Controller
 {
+
+    public function indexAgences()
+    {
+        $agences=Agence::all();
+        return view("welcome",array('agences'=>$agences));
+         
+    }
     public function liste()
     {
         $agences= AgenceResource::collection(Agence::all());

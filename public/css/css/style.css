@@ -117,6 +117,7 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -583,7 +584,7 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container {
+/* .container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -594,13 +595,21 @@ pre {
       max-width: 540px; } }
   @media (min-width: 768px) {
     .container {
-      max-width: 720px; } }
+      max-width: 720px; }
+      .nk-sidebar {
+        width: 100%;
+      }
+      .content-body {
+        margin-left: ;
+      }
+  }
+
   @media (min-width: 992px) {
     .container {
       max-width: 960px; } }
   @media (min-width: 1200px) {
     .container {
-      max-width: 1140px; } }
+      max-width: 1140px; } } */
 
 .container-fluid {
   width: 100%;
@@ -3304,7 +3313,7 @@ input[type="button"].btn-block {
     color: #fff; }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5); }
+  color: #fff!important; }
   .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     color: rgba(255, 255, 255, 0.75); }
   .navbar-dark .navbar-nav .nav-link.disabled {
@@ -14786,3 +14795,41 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+@media (max-width: 768px) {
+  
+    .nk-sidebar {
+      width: 100%;
+    }
+    .content-body {
+      margin-left: 0;
+    }
+    
+
+    [data-sidebar-style="overlay"] .nk-sidebar {
+      left: 0; }
+      .menu-is-active .nk-sidebar {
+        width: 0;
+        overflow: hidden;
+        
+      }
+      .menu-is-active .content-body {
+        margin-left: 0;
+    }
+      .nav-header  {
+        display: none;
+    }
+      .menu-is-active .header,[data-sidebar-style="full"] .header, [data-sidebar-style="overlay"] .header {
+        margin-left: 0;
+        width: 100%!important;
+    }
+
+    .btn-zk {
+      text-align: center;
+      margin: 10px 0;
+  }
+ 
+    .r-icon {
+      display: none!important;
+    }
+  
+}

@@ -86,10 +86,10 @@ class ReservationController extends Controller
             $fullname=$reservation->fullname;
             $data = array('name'=>$fullname,'voiture'=>$voiture->voiture_nom,'agence'=>$agence->agence_name,'date'=>$reservation->date_reservation);
         
-            /* Mail::send('mail', ['user' => $reservation],$data, function ($message) use ($reservation) {
+             /* Mail::send('mail', ['user' => $reservation],$data, function ($message) use ($reservation) {
                 $message->from('laravelsmtp34@gmail.com', 'Your Application');
-                $message->to('mehdiraja328@gmail.com', $reservation->fullname)->subject('Welcome to laravel');
-            });*/
+                 $message->to('zaka19982016@gmail.com', $reservation->fullname)->subject('Welcome to laravel');
+             });*/
             Mail::send(['text'=>'mail','reservation' => $reservation], $data, function($message) use ($reservation){
                 $message->to($reservation->email , $reservation->fullname)->subject
                     ('Demande de voiture');

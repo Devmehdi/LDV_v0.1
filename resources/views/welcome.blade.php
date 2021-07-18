@@ -73,7 +73,7 @@
 
     
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb" style="margin: 100px">
+    <section class="ftco-section " >
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
@@ -159,7 +159,7 @@
         </div>
         <div class="row">
           @foreach ($voitures as $voiture)
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <div class="car-wrap ftco-animate">
               <div class="img d-flex align-items-end" style="background-image: url({{url('images/voitures/'.$voiture->image)}});">
                 <div class="price-wrap d-flex">

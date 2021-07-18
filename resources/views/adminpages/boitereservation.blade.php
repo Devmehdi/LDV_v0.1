@@ -1,11 +1,21 @@
 @extends('layouts.master.layout')
 
 @section('content')
+<div class="content-body">
 
+  
+<!-- <div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Agence</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Liste des agences</a></li>
+        </ol>
+    </div>
+</div> -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" style="margin-left: 200px;">
+            <div class="card" >
                 <div class="card-body">
                     <div class="email-left-box">
                         <h3>Boite de résevation</h3>
@@ -81,5 +91,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

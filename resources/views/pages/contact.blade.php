@@ -40,7 +40,7 @@
             @endif --}}
 
 
-          <form action="{{ route('contact-form.store') }}" method="POST" class="bg-light p-5 contact-form">
+          <form action="{{ route('contact-form.store') }}" method="POST" class="bg-light p-3 contact-form">
             {{ csrf_field() }}
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Your Name" value="{{ old('name') }}" name="name" required>
@@ -75,11 +75,11 @@
         
         </div>
       </div>
-      <div class="row justify-content-center">
+      <!-- <div class="row justify-content-center">
           <div class="col-md-10">
               <div id="map" class="bg-white"></div>
           </div>
       </div>
-    </div>
+    </div> -->
   </section>
 @endsection

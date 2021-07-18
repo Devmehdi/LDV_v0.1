@@ -46,7 +46,9 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
+ }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
@@ -440,12 +442,20 @@ pre {
 
 .pre-scrollable {
   max-height: 340px;
-  overflow-y: scroll; }
+  overflow-y: hidden; }
 
 .container {
   width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
+  @media (min-width: 320px) {
+    .container {
+      max-width: 310px; } }
+  @media (min-width: 425px) {
+    .container {
+      max-width: 390px; } }
   @media (min-width: 576px) {
     .container {
       max-width: 540px; } }
@@ -4590,7 +4600,7 @@ a.close.disabled {
   overflow: hidden; }
   .modal-open .modal {
     overflow-x: hidden;
-    overflow-y: auto; }
+    overflow-y: hidden; }
 
 .modal {
   position: fixed;
@@ -8119,7 +8129,7 @@ h1, h2, h3, h4, h5,
       color: #fc983c; } }
   .ftco-navbar-light .navbar-toggler {
     border: none;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: #fff!important;
     cursor: pointer;
     padding-right: 0;
     text-transform: uppercase;
@@ -8171,7 +8181,7 @@ h1, h2, h3, h4, h5,
         padding-right: 0rem !important; } }
     .ftco-navbar-light.scrolled .navbar-toggler {
       border: none;
-      color: rgba(0, 0, 0, 0.5) !important;
+      color: #fff!important;
       border-color: rgba(0, 0, 0, 0.5) !important;
       cursor: pointer;
       padding-right: 0;
@@ -8193,8 +8203,8 @@ h1, h2, h3, h4, h5,
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }
-    .ftco-navbar-light.scrolled .navbar-brand {
-      color: #000000; }
+    /* .ftco-navbar-light.scrolled .navbar-brand {
+      color: #000000; } */
 
 .navbar-brand {
   font-weight: 800;
@@ -9064,7 +9074,7 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   background: #000;
-  padding: 7em 0; }
+  padding: 1em 0; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -11194,8 +11204,17 @@ a.bloc {
   box-shadow: 1px 1px 5px 1px #ababab;
   color: black;
   font-weight: bold;
+  width: 100%;
+  height: 80px;
+  display: block;
+  text-align: center;
 }
 a.bloc:hover {
   box-shadow: 1px 1px 4px 1px #f7b71d;
   color: orange;
+}
+@media(max-width: 320px){
+  .request-form {
+    padding: 30px 10px;
+  }
 }
